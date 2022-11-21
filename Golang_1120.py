@@ -240,6 +240,8 @@ def p_error(p):
 
 yacc.yacc()
 
+# debugging process
+
 # import logging
 #
 # logging.basicConfig(
@@ -254,4 +256,5 @@ while True:
         break
     if not s:
         continue
-    yacc.parse(s, debug=logging.getLogger())
+    # yacc.parse(s, debug=logging.getLogger())
+    yacc.parse(s)
