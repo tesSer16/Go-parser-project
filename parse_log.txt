@@ -171,3 +171,14 @@ INFO:root:Action : Reduce rule [statement -> condition] with [False] and goto st
 INFO:root:Result : <NoneType @ 0x7ffe33c02cd8> (None)
 INFO:root:Done   : Returning <NoneType @ 0x7ffe33c02cd8> (None)
 INFO:root:PLY: PARSE DEBUG END
+INFO:root:PLY: PARSE DEBUG START
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 4
+INFO:root:Result : <int @ 0x1fbd9bf6970> (3)
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 38
+INFO:root:Result : <int @ 0x1fbd9bf6970> (3)
+INFO:root:Action : Reduce rule [expression -> expression + expression] with [3,'+',3] and goto state 4
+INFO:root:Result : <int @ 0x1fbd9bf69d0> (6)
+INFO:root:Action : Reduce rule [statement -> expression] with [6] and goto state 1
+INFO:root:Result : <NoneType @ 0x7ffffa719cd8> (None)
+INFO:root:Done   : Returning <NoneType @ 0x7ffffa719cd8> (None)
+INFO:root:PLY: PARSE DEBUG END
