@@ -1,0 +1,33 @@
+- rest one 할당 연산자
++=, -=, *=, /=, %=
+exceptional(:=)
+
+- noassoc for assignment
+
+- zero value(0, false, "")
+
+- reassign only for same type
+
+- const
+
+- EQ, NE for conditions
+
+- multi-line?
+
+- string, function, array
+
+-----------------------------
+
+- if, switch (:= and semicolon)
+
+- for, while
+https://goknew.blogspot.com/2016/08/while-loop.html
+
+- import, package
+Scanln, Println
+
+-----------------------------
+
+- 구조 변경 및 parse tree
+
+- error handling
