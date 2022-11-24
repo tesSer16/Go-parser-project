@@ -4,30 +4,42 @@ exceptional(:=)
 
 - noassoc for assignment
 
-- zero value(0, false, "")
+- zero division
+
+- zero value(0, false, "") 
+var x int
+var x bool
+var x string
+
+var x = false
 
 - reassign only for same type
+x = 3
 
-- const
+- const 오류 처리
+
+- string
 
 - EQ, NE for conditions
 
-- multi-line?
-
-- string, function, array
-
------------------------------
+-------------------------------
 
 - if, switch (:= and semicolon)
 
-- for, while
+- for, func
 https://goknew.blogspot.com/2016/08/while-loop.html
 
-- import, package
-Scanln, Println
+- function, (array)
 
 -----------------------------
 
-- 구조 변경 및 parse tree
+- import, package 
+Scanln, Println
+
+main 함수 check
+
+-----------------------------
+
+- 튜플 구조 / 일부는 value 형태
 
 - error handling
