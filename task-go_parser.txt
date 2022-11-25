@@ -6,11 +6,10 @@ exceptional(:=)
 
 - zero division
 
-- zero value(0, false, "") 
+- zero value(0, false, "") -> clear
 var x int
 var x bool
 var x string
-
 var x = false
 
 - reassign only for same type
@@ -18,7 +17,7 @@ x = 3
 
 - const 오류 처리
 
-- string
+- string -> almost clear
 
 - EQ, NE for conditions
 
@@ -37,6 +36,18 @@ https://goknew.blogspot.com/2016/08/while-loop.html
 Scanln, Println
 
 main 함수 check
+
+-----------------------------
+start -> import_stat , package_stat, stat
+statement -> assign_stat newline newline* stat 
+          | if_stat 등등 (statement의 정의가 코드 N줄)
+expression -> integer
+condition -> bool
+string -> string
+function -> func string stat
+
+token : blank(spacebar | \t)* , Newline(blank \n blank)
+
 
 -----------------------------
 

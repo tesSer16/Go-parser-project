@@ -124,7 +124,7 @@ is_fmt = False
 
 def p_start(p):  # import statement 추가
     """
-    start : KPACKAGE KMAIN import_statement main_statement
+    start : KPACKAGE KMAIN statement import_statement statement main_statement statement
     """
 
 
@@ -138,9 +138,21 @@ def p_import_statement(p):
         is_fmt = True
 
 
+def p_statement(p):
+    """
+    statement : global_statement statement
+              | if_statement statement
+              | switch_statement statement
+              | for_statement statement
+              | func_statement statement
+              | assign_statement statement
+              | empty
+    """
+
+
 def p_main_statement(p):
     """
-    main_statement : global_statement KFUNC KMAIN '(' ')' '{' statement '}' global_statement
+    main_statement : KFUNC KMAIN '(' ')' '{' statement '}'
     """
 
 
@@ -152,19 +164,9 @@ def p_global_statement(p):  # 이름 변경
     """
 
 
-def p_global_assign_statement(p):
+def p_global_assign_statement(p):  # not implemented
     """
     global_assign_statement : empty
-    """
-
-
-def p_statement(p):
-    """
-    statement : if_statement statement
-              | switch_statement statement
-              | for_statement statement
-              | func_statement statement
-              | assign_statement statement
     """
 
 
