@@ -25,3 +25,4 @@
 - 함수 parameter 및 ',' 사용 시 
 4. 함수 밖에서는 non-declare statement가 불가(go 문법)
 5. break, continue, etc.
+6. ++ / --

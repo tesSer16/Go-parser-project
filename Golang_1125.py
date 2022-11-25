@@ -203,8 +203,16 @@ def p_func_statement(p):
     pass
 
 
+def p_assign_statement(p):
+    """
+    assign_statement : var_assign_statement
+                     | const_assign_statement
+                     | def_assign_statement
+    """
+
+
 def p_assign_statement_default(p):  # add zero value handling / redeclare
-    """assign_statement : KVAR ID type assign_expr"""
+    """var_assign_statement : KVAR ID type assign_expr"""
     # redeclared check
     if p[2] in names:
         print(f"Error: {p[2]} redeclared in the scope")
@@ -262,19 +270,12 @@ def p_type(p):
 
 
 def p_expr_cond(p):
-    """
-    expr_cond : expression
-              | condition
-    """
+    """expr_cond : expression | condition"""
     p[0] = p[1]
 
 
-def p_assign_def_statement(p):
-    """assign_statement : def_statement"""
-
-
 def p_assign_const_statement(p):
-    """assign_statement : KCONST ID type assign_expr"""
+    """const_assign_statement : KCONST ID type assign_expr"""
     # redeclared check
     if p[2] in names:
         print(f"Error: {p[2]} redeclared in the scope")
