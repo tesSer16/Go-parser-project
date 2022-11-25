@@ -207,7 +207,7 @@ def p_assign_statement(p):
     """
     assign_statement : var_assign_statement
                      | const_assign_statement
-                     | def_assign_statement
+                     | def_statement
     """
 
 
@@ -270,7 +270,10 @@ def p_type(p):
 
 
 def p_expr_cond(p):
-    """expr_cond : expression | condition"""
+    """
+    expr_cond : expression
+              | condition
+    """
     p[0] = p[1]
 
 
@@ -386,7 +389,13 @@ def p_statement_reassign_op(p):
 
 
 def p_assign_oper(p):
-    """assign_oper : PE | ME | TE | DE | MOE"""
+    """
+    assign_oper : PE
+                | ME
+                | TE
+                | DE
+                | MOE
+    """
     p[0] = p[1]
 
 
@@ -430,7 +439,13 @@ def p_expression_binop(p):
 
 
 def p_oper(p):
-    """oper : '+' | '-' | '*' | '/' | '%'"""
+    """
+    oper : '+'
+         | '-'
+         | '*'
+         | '/'
+         | '%'
+    """
     p[0] = p[1]
 
 
@@ -522,7 +537,14 @@ def p_condition_relop(p):
 
 
 def p_rel_op(p):
-    """rel_op : LT | LE | GT | GE | EQ | NE"""
+    """
+    rel_op : LT
+           | LE
+           | GT
+           | GE
+           | EQ
+           | NE
+    """
     p[0] = p[1]
 
 
