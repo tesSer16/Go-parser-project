@@ -54,7 +54,7 @@ t_MOE = r'%='
 
 t_DEF = r':='
 
-t_STRING = r'"[^\s\s]*"'  # accept all string
+t_STRING = r'"[^\s\s^"]*"'  # accept all string but '"'
 
 
 def t_BOOL(t):
@@ -345,13 +345,7 @@ def p_statement_reassign(p):
 
 
 def p_statement_reassign_op(p):
-    """
-    assign_statement : ID PE expression
-                     | ID ME expression
-                     | ID TE expression
-                     | ID DE expression
-                     | ID MOE expression
-    """
+    """assign_statement : ID assign_oper expression"""
     # name check
     if p[1] not in names:
         print("Undefined identifier '%s'" % p[1])
@@ -390,19 +384,18 @@ def p_statement_reassign_op(p):
         names[p[1]] %= p[3]
 
 
+def p_assign_oper(p):
+    """assign_oper : PE | ME | TE | DE | MOE"""
+    p[0] = p[1]
+
+
 def p_empty(p):
     """empty :"""
     pass
 
 
 def p_expression_binop(p):
-    """
-    expression : expression '+' expression
-               | expression '-' expression
-               | expression '*' expression
-               | expression '/' expression
-               | expression '%' expression
-    """
+    """expression : expression oper expression"""
 
     # type check
     if not isinstance(p[1], type(p[3])):
@@ -435,6 +428,11 @@ def p_expression_binop(p):
         p[0] = p[1] % p[3]
 
 
+def p_oper(p):
+    """oper : '+' | '-' | '*' | '/' | '%'"""
+    p[0] = p[1]
+
+
 def p_expression_uminus(p):
     """expression : '-' expression %prec UMINUS"""
     p[0] = -p[2]
@@ -456,7 +454,7 @@ def p_expression_string(p):
     """
     expression : STRING
     """
-    p[0] = p[1].replace('"', '')
+    p[0] = p[1].replace('"', '')  #
 
 
 def p_expression_id(p):
@@ -497,12 +495,7 @@ def p_condition_bool(p):
 
 def p_condition_relop(p):
     """
-    condition : expression LT expression
-              | expression LE expression
-              | expression GT expression
-              | expression GE expression
-              | expression EQ expression
-              | expression NE expression
+    condition : expression rel_op expression
               | condition EQ condition
               | condition NE condition
     """
@@ -525,6 +518,11 @@ def p_condition_relop(p):
         p[0] = p[1] == p[3]
     elif p[2] == '!=':
         p[0] = p[1] != p[3]
+
+
+def p_rel_op(p):
+    """rel_op : LT | LE | GT | GE | EQ | NE"""
+    p[0] = p[1]
 
 
 def p_error(p):
