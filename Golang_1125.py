@@ -54,7 +54,7 @@ t_MOE = r'%='
 
 t_DEF = r':='
 
-t_STRING = r'"[a-zA-Z0-9_]*"'
+t_STRING = r'"[^\s\s]*"'  # accept all string
 
 
 def t_BOOL(t):
@@ -85,10 +85,10 @@ literals = [
 t_ignore = ' \t'
 
 
-# Ignored token with an action associated with it
-def t_ignore_newline(t):
-    r'\n+'
-    t.lexer.lineno += t.value.count('\n')
+# # Ignored token with an action associated with it
+# def t_ignore_newline(t):
+#     r'\n+'
+#     t.lexer.lineno += t.value.count('\n')
 
 
 # Error handler for illegal characters
@@ -216,7 +216,7 @@ def p_assign_statement_default(p):  # add zero value handling / redeclare
             if t != bool:
                 print("TypeError: non bool type assigned to bool")
             else:
-                names[p[2]] = p[4]
+                names[p[2]] = p[4]  # Accepted
 
         else:
             names[p[2]] = False  # zero accepted
@@ -226,7 +226,7 @@ def p_assign_statement_default(p):  # add zero value handling / redeclare
             if t != int:
                 print("TypeError: non int type assigned to int")
             else:
-                names[p[2]] = p[4]
+                names[p[2]] = p[4]  # Accepted
 
         else:
             names[p[2]] = 0  # zero accepted
@@ -236,13 +236,10 @@ def p_assign_statement_default(p):  # add zero value handling / redeclare
             if t != str:
                 print("TypeError: non string type assigned to string")
             else:
-                names[p[2]] = p[4]
+                names[p[2]] = p[4]  # Accepted
 
         else:
             names[p[2]] = ""  # zero accepted
-
-    else:  # Accepted
-        names[p[2]] = p[5]
 
 
 def p_assign_expr(p):
@@ -277,21 +274,51 @@ def p_assign_def_statement(p):
 
 
 def p_assign_const_statement(p):
-    """assign_statement : KCONST ID type '=' expression"""
+    """assign_statement : KCONST ID type assign_expr"""
     # redeclared check
     if p[2] in names:
         print(f"Error: {p[2]} redeclared in the scope")
         return
 
+    t = type(p[4])
+    if p[3] == 'bool':
+        if p[4] is not None:
+            if t != bool:
+                print("TypeError: non bool type assigned to bool")
+            else:
+                names[p[2]] = p[4]  # Accepted
+
+        else:
+            names[p[2]] = False  # zero accepted
+
+    elif p[3] == 'int':
+        if p[4] is not None:
+            if t != int:
+                print("TypeError: non int type assigned to int")
+            else:
+                names[p[2]] = p[4]  # Accepted
+
+        else:
+            names[p[2]] = 0  # zero accepted
+
+    elif p[3] == 'string':
+        if p[4] is not None:
+            if t != str:
+                print("TypeError: non string type assigned to string")
+            else:
+                names[p[2]] = p[4]  # Accepted
+
+        else:
+            names[p[2]] = ""  # zero accepted
+
     constants.add(p[2])
-    names[p[2]] = p[5]
 
 
 def p_def_statement(p):
     """def_statement : ID DEF expr_cond"""
-    # name check
-    if p[1] not in names:
-        print("Undefined identifier '%s'" % p[1])
+    # redeclared check
+    if p[1] in names:
+        print(f"Error: {p[1]} redeclared in the scope")
         return
 
     names[p[1]] = p[3]
@@ -310,7 +337,7 @@ def p_statement_reassign(p):
         return
 
     # type check
-    if isinstance(names[p[1]], type(p[3])):
+    if not isinstance(names[p[1]], type(p[3])):
         print(f"TypeError: type mismatch {names[p[1]]} and {p[3]}")
         return
 
@@ -336,7 +363,7 @@ def p_statement_reassign_op(p):
         return
 
     # type check
-    if isinstance(names[p[1]], type(p[3])):
+    if not isinstance(names[p[1]], type(p[3])):
         print(f"TypeError: type mismatch {names[p[1]]}({type(names[p[1]])}) and {p[3]}({type(p[3])})")
         return
 
@@ -378,7 +405,7 @@ def p_expression_binop(p):
     """
 
     # type check
-    if isinstance(p[1], type(p[3])):
+    if not isinstance(p[1], type(p[3])):
         print(f"TypeError: type mismatch {p[1]} and {p[3]}")
         p[0] = 0
         return
@@ -481,7 +508,7 @@ def p_condition_relop(p):
     """
 
     # type check
-    if isinstance(p[1], type(p[3])):
+    if not isinstance(p[1], type(p[3])):
         print(f"TypeError: type mismatch {p[1]} and {p[3]}")
         p[0] = False
         return
