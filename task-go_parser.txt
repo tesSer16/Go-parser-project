@@ -1,10 +1,10 @@
-- rest one 할당 연산자
+- rest one 할당 연산자 -> clear
 +=, -=, *=, /=, %=
-exceptional(:=)
+exceptional(:=) -> clear
 
-- noassoc for assignment
+- noassoc for assignment -> clear
 
-- zero division
+- zero division -> almost clear
 
 - zero value(0, false, "") -> clear
 var x int
@@ -12,14 +12,16 @@ var x bool
 var x string
 var x = false
 
-- reassign only for same type
+- reassign only for same type  -> clear
 x = 3
-
-- const 오류 처리
 
 - string -> almost clear
 
-- EQ, NE for conditions
+- EQ, NE for conditions -> clear
+
+- const 오류 처리 -> clear
+
+- scope 처리(def, assign, ID)
 
 -------------------------------
 

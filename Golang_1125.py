@@ -1,5 +1,6 @@
 import ply.lex as lex
 import ply.yacc as yacc
+import sys
 
 # keywords
 reserved = {
@@ -9,9 +10,9 @@ reserved = {
     'string': 'KSTRING',
     'for': 'KFOR',
     'break': 'KBREAK',
-    'default':'KDEFAULT',
-    'func':'KFUNC',
-    'select':'KSELECT',
+    'default': 'KDEFAULT',
+    'func': 'KFUNC',
+    'select': 'KSELECT',
     'case': 'KCASE',
     'else': 'KELSE',
     'package': 'KPACKAGE',
@@ -30,7 +31,7 @@ reserved = {
 tokens = (
              'LOR', 'LAND',  # logical
              'LE', 'LT', 'GE', 'GT', 'EQ', 'NE',  # relational
-             'PE', 'ME', 'TE', 'DE', 'MOE',  # assign
+             'MOE', 'DEF', 'PE', 'ME', 'TE', 'DE',  # assign
 
              'ID', 'INT', 'BOOL', 'STRING'  # identifier
          ) + tuple(reserved.values())
@@ -51,7 +52,9 @@ t_TE = r'\*='
 t_DE = r'/='
 t_MOE = r'%='
 
-t_STRING = r'"[a-zA-Z0-9_]+"'
+t_DEF = r':='
+
+t_STRING = r'"[a-zA-Z0-9_]*"'
 
 
 def t_BOOL(t):
@@ -107,6 +110,7 @@ lex.lex()
 # Parsing rules
 
 precedence = (
+    ('nonassoc', 'PE', 'ME', 'TE', 'DE', 'MOE', 'DEF'),
     ('left', 'LAND', 'LOR'),
     ('right', '!'),
 
@@ -118,6 +122,7 @@ precedence = (
 
 names = {}
 global_names = {}
+constants = set()
 start = 'assign_statement'
 is_fmt = False
 
@@ -198,8 +203,12 @@ def p_func_statement(p):
     pass
 
 
-def p_statement_var_assign(p):  # add zero value handling
+def p_assign_statement_default(p):  # add zero value handling / redeclare
     """assign_statement : KVAR ID type assign_expr"""
+    # redeclared check
+    if p[2] in names:
+        print(f"Error: {p[2]} redeclared in the scope")
+        return
 
     t = type(p[4])
     if p[3] == 'bool':
@@ -235,19 +244,17 @@ def p_statement_var_assign(p):  # add zero value handling
     else:  # Accepted
         names[p[2]] = p[5]
 
-    print(names)
-
 
 def p_assign_expr(p):
     """
-    assign_expr : "=" expression
+    assign_expr : "=" expr_cond
                 | empty
     """
-    if len(p) == 3:
+    if p[1] == '=':
         p[0] = p[2]
 
 
-def p_type_determine(p):
+def p_type(p):
     """
     type : KINT
          | KBOOL
@@ -257,27 +264,108 @@ def p_type_determine(p):
     p[0] = p[1]
 
 
-def p_statement_reassign(p):
-    """statement : ID "=" expression"""
-    if p[1] in names:
-        names[p[1]] = p[3]
-    else:
+def p_expr_cond(p):
+    """
+    expr_cond : expression
+              | condition
+    """
+    p[0] = p[1]
+
+
+def p_assign_def_statement(p):
+    """assign_statement : def_statement"""
+
+
+def p_assign_const_statement(p):
+    """assign_statement : KCONST ID type '=' expression"""
+    # redeclared check
+    if p[2] in names:
+        print(f"Error: {p[2]} redeclared in the scope")
+        return
+
+    constants.add(p[2])
+    names[p[2]] = p[5]
+
+
+def p_def_statement(p):
+    """def_statement : ID DEF expr_cond"""
+    # name check
+    if p[1] not in names:
         print("Undefined identifier '%s'" % p[1])
-        p[0] = 0
+        return
+
+    names[p[1]] = p[3]
+
+
+def p_statement_reassign(p):
+    """assign_statement : ID "=" expr_cond"""
+    # name check
+    if p[1] not in names:
+        print("Undefined identifier '%s'" % p[1])
+        return
+
+    # const check
+    if p[1] in constants:
+        print(f"Error: cannot assign to constant {p[1]}")
+        return
+
+    # type check
+    if isinstance(names[p[1]], type(p[3])):
+        print(f"TypeError: type mismatch {names[p[1]]} and {p[3]}")
+        return
+
+    names[p[1]] = p[3]
+
+
+def p_statement_reassign_op(p):
+    """
+    assign_statement : ID PE expression
+                     | ID ME expression
+                     | ID TE expression
+                     | ID DE expression
+                     | ID MOE expression
+    """
+    # name check
+    if p[1] not in names:
+        print("Undefined identifier '%s'" % p[1])
+        return
+
+    # const check
+    if p[1] in constants:
+        print(f"Error: cannot assign to constant {p[1]}")
+        return
+
+    # type check
+    if isinstance(names[p[1]], type(p[3])):
+        print(f"TypeError: type mismatch {names[p[1]]}({type(names[p[1]])}) and {p[3]}({type(p[3])})")
+        return
+
+    # string check
+    if type(names[p[1]]) == str and p[2] != '+=':
+        print("Invalid operation:", p[2], "is not defined on string")
+        return
+
+    if p[2] == '+=':
+        names[p[1]] += p[3]
+    elif p[2] == '-=':
+        names[p[1]] -= p[3]
+    elif p[2] == '*=':
+        names[p[1]] *= p[3]
+    elif p[2] == '/=':
+        if p[3] == 0:  # zero division check
+            print("ZeroDivisionError: division by zero")
+            return
+        names[p[1]] //= p[3]
+    elif p[2] == '%=':
+        if p[3] == 0:  # zero division check
+            print("ZeroDivisionError: division by zero")
+            return
+        names[p[1]] %= p[3]
 
 
 def p_empty(p):
     """empty :"""
     pass
-
-
-def p_statement_expr(p):
-    """
-    statement : expression
-              | condition
-    """
-    # print(names)
-    print(p[1])
 
 
 def p_expression_binop(p):
@@ -286,9 +374,20 @@ def p_expression_binop(p):
                | expression '-' expression
                | expression '*' expression
                | expression '/' expression
+               | expression '%' expression
     """
 
-    # string check required
+    # type check
+    if isinstance(p[1], type(p[3])):
+        print(f"TypeError: type mismatch {p[1]} and {p[3]}")
+        p[0] = 0
+        return
+
+    # string check
+    if type(p[1]) == str and p[2] != '+':
+        print("Invalid operation:", p[2], "is not defined on string")
+        return
+
     if p[2] == '+':
         p[0] = p[1] + p[3]
     elif p[2] == '-':
@@ -296,11 +395,21 @@ def p_expression_binop(p):
     elif p[2] == '*':
         p[0] = p[1] * p[3]
     elif p[2] == '/':
-        p[0] = p[1] / p[3]
+        if p[3] == 0:  # zero division check
+            print("ZeroDivisionError: division by zero")
+            p[0] = 0
+            return
+        p[0] = p[1] // p[3]
+    elif p[2] == '%':
+        if p[3] == 0:  # zero division check
+            print("ZeroDivisionError: division by zero")
+            p[0] = 0
+            return
+        p[0] = p[1] % p[3]
 
 
 def p_expression_uminus(p):
-    "expression : '-' expression %prec UMINUS"
+    """expression : '-' expression %prec UMINUS"""
     p[0] = -p[2]
 
 
@@ -310,8 +419,17 @@ def p_expression_group(p):
 
 
 def p_expression_int(p):
-    """expression : INT"""
+    """
+    expression : INT
+    """
     p[0] = p[1]
+
+
+def p_expression_string(p):
+    """
+    expression : STRING
+    """
+    p[0] = p[1].replace('"', '')
 
 
 def p_expression_id(p):
@@ -321,11 +439,6 @@ def p_expression_id(p):
     except LookupError:
         print("Undefined identifier '%s'" % p[1])
         p[0] = 0
-
-
-def p_expression_string(p):
-    """expression : STRING"""
-    p[0] = p[1]
 
 
 def p_condition_binop(p):
@@ -363,7 +476,16 @@ def p_condition_relop(p):
               | expression GE expression
               | expression EQ expression
               | expression NE expression
+              | condition EQ condition
+              | condition NE condition
     """
+
+    # type check
+    if isinstance(p[1], type(p[3])):
+        print(f"TypeError: type mismatch {p[1]} and {p[3]}")
+        p[0] = False
+        return
+
     if p[2] == '<':
         p[0] = p[1] < p[3]
     elif p[2] == '<=':
@@ -387,7 +509,7 @@ def p_error(p):
 
 yacc.yacc()
 
-# debugging process
+# debugging process(stack view)
 
 # import logging
 #
@@ -396,7 +518,18 @@ yacc.yacc()
 #     filename="parse_log.txt"
 # )
 
+
+# file execution
+if len(sys.argv) == 2:
+    with open(sys.argv[1]) as f:
+        data = f.read()
+
+    yacc.parse(data)
+    exit(0)
+
+# interactive mode
 while True:
+    print(names)
     try:
         s = input('stmt > ')
     except EOFError:
