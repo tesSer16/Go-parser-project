@@ -11,24 +11,23 @@ reserved = {
     'for': 'KFOR',
     'break': 'KBREAK',
     'default': 'KDEFAULT',
-    'func': 'KFUNC',
-    'select': 'KSELECT',
     'case': 'KCASE',
     'else': 'KELSE',
     'package': 'KPACKAGE',
     'switch': 'KSWITCH',
     'const': 'KCONST',
     'if': 'KIF',
-    'type': 'KTYPE',
+    'func': 'KFUNC',
     'continue': 'KCONTINUE',
     'import': 'KIMPORT',
-    'return': 'KRETURN',
     'Println': 'KPRINT',
+    'fmt': 'KFMT',
     'main': 'KMAIN'
 }
 
 # tokens
 tokens = (
+             'NLD',  # newline
              'LOR', 'LAND',  # logical
              'LE', 'LT', 'GE', 'GT', 'EQ', 'NE',  # relational
              'MOE', 'DEF', 'PE', 'ME', 'TE', 'DE',  # assign
@@ -54,7 +53,7 @@ t_MOE = r'%='
 
 t_DEF = r':='
 
-t_STRING = r'"[^\s\s^"]*"'  # accept all string but '"'
+t_STRING = r'"[^"]*"'  # accept all string but '"'
 
 
 def t_BOOL(t):
@@ -75,10 +74,17 @@ def t_INT(t):
     return t
 
 
+def t_NLD(t):
+    r'[\n]+'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+
+
 literals = [
     '=', '+', '-', '*', '/',  # arithmetic(except '=')
     '(', ')',  # parenthesis
-    '!'  # logical
+    '!',  # logical
+    '{', '}', ',', ':', '.'
 ]
 
 # Ignored characters
@@ -123,92 +129,232 @@ precedence = (
 names = {}
 global_names = {}
 constants = set()
-start = 'assign_statement'
-is_fmt = False
+start = 'start'
+is_fmt = not False
+
+
+# def p_test(p):
+#     """
+#     test : KPACKAGE KMAIN NLD global_statement import_statement NL
+#     """
 
 
 def p_start(p):  # import statement 추가
     """
-    start : KPACKAGE KMAIN statement import_statement statement main_statement statement
+    start : KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement
     """
+    p[0] = ("start", p[4], p[5], p[7])
+    print("Code accepted:", p[0])
 
 
 def p_import_statement(p):
     """
     import_statement : KIMPORT STRING
-                     | empty
     """
     global is_fmt
-    if len(p) == 3 and p[2] == "fmt":
+    if p[2] == '"fmt"':
         is_fmt = True
+        print("module", p[2], "imported")
+
+    p[0] = ("import", p[2])
+
+
+def p_import_statement_empty(p):
+    """
+    import_statement : empty
+    """
+    p[0] = ("import", None)
 
 
 def p_statement(p):
     """
-    statement : global_statement statement
+    statement : print_statement statement
               | if_statement statement
               | switch_statement statement
               | for_statement statement
-              | func_statement statement
               | assign_statement statement
-              | empty
     """
+    p[0] = (p[1], ) + p[2]
+
+
+def p_statement_empty(p):
+    """
+    statement : empty
+    """
+    p[0] = tuple()
 
 
 def p_main_statement(p):
     """
-    main_statement : KFUNC KMAIN '(' ')' '{' statement '}'
+    main_statement : global_statement KFUNC KMAIN '(' ')' '{' NL statement NL '}'
+    """
+    p[0] = (p[1], ("main", p[8]), None)
+
+
+def p_main_statement_with_global(p):
+    """
+    main_statement : global_statement KFUNC KMAIN '(' ')' '{' NL statement NL '}' NLD global_statement
+    """
+    p[0] = (p[1], ("main", p[8]), p[12])
+
+
+def p_NL(p):
+    """
+    NL : NLD
+       | empty
     """
 
 
-def p_global_statement(p):  # 이름 변경
+def p_global_statement(p):
     """
-    global_statement : func_statement global_statement
-                     | global_assign_statement global_statement
-                     | empty
+    global_statement : global_assign_statement NLD global_statement
     """
+    p[0] = (p[1], ) + p[3]
+
+
+def p_global_statement_empty(p):
+    """global_statement : empty"""
+    p[0] = tuple()
 
 
 def p_global_assign_statement(p):  # not implemented
     """
-    global_assign_statement : empty
+    global_assign_statement : KVAR
     """
 
 
 def p_if_statement(p):
     """
-    if_statement : empty
+    if_statement : KIF condition '{' NL statement NL '}' else_statement NLD
     """
-    pass
+    p[0] = (("if", p[2], p[5]), ) + p[8]
+    print("If accepted: ", p[0])
 
 
-def p_switch_statement(p):
+def p_else_statement_elif(p):
     """
-    switch_statement : empty
+    else_statement : KELSE KIF condition '{' NL statement NL '}' else_statement
     """
-    pass
+    p[0] = (("else if", p[3], p[6]), ) + p[9]
+
+
+def p_else_statement_else(p):
+    """else_statement : KELSE '{' NL statement NL '}'"""
+    p[0] = ("else", p[4])
+
+
+def p_else_statement_empty(p):
+    """else_statement : empty"""
+    p[0] = tuple()
+
+
+def p_switch_statement_cond(p):
+    """
+    switch_statement : KSWITCH '{' NL case_statement '}' NLD
+    """
+    p[0] = ("switch", p[4])
+    print("Switch accepted: ", p[0])
+
+
+def p_switch_statement_var(p):
+    """
+    switch_statement : KSWITCH expr_cond '{' NL case_var_statement '}' NLD
+    """
+    p[0] = ("switch", p[2], p[5])
+    print("Switch accepted: ", p[0])
+
+
+def p_case_statement(p):
+    """
+    case_statement : KCASE condition ':' NL statement case_statement
+    """
+    p[0] = (("case", p[2], p[5]),) + p[6]
+
+
+def p_case_statement_default(p):
+    """case_statement : KDEFAULT ':' NL statement case_without_default_statement"""
+    p[0] = (("default", p[4]),) + p[5]
+
+
+def p_case_statement_empty(p):
+    """case_statement : empty"""
+    p[0] = tuple()
+
+
+def p_case_without_default_statement(p):
+    """
+    case_without_default_statement : KCASE condition ':' NL statement case_without_default_statement
+    """
+    p[0] = (("case", p[2], p[5]),) + p[6]
+
+
+def p_case_without_default_statement_empty(p):
+    """case_without_default_statement : empty"""
+    p[0] = tuple()
+
+
+def p_case_var_statement(p):
+    """
+    case_var_statement : KCASE var_statement ':' NL statement case_var_statement
+    """
+    p[0] = (("case", p[2], p[5]),) + p[6]
+
+
+def p_case_var_statement_default(p):
+    """case_var_statement : KDEFAULT ':' NL statement case_var_without_default_statement"""
+    p[0] = (("default", p[4]), ) + p[5]
+
+
+def p_case_var_statement_empty(p):
+    """case_var_statement : empty"""
+    p[0] = tuple()
+
+
+def p_case_var_without_default_statement(p):
+    """
+    case_var_without_default_statement : KCASE var_statement ':' NL statement case_var_without_default_statement
+    """
+    p[0] = (("case", p[2], p[5]), ) + p[6]
+
+
+def p_case_var_without_default_statement_empty(p):
+    """case_var_without_default_statement : empty"""
+    p[0] = tuple()
+
+
+def p_var_statement(p):
+    """
+    var_statement : expr_cond comma_var
+    """
+    p[0] = (p[1], *p[2][::-1])
+
+
+def p_comma_var(p):
+    """
+    comma_var : ',' expr_cond comma_var
+    """
+    p[0] = p[3] + (p[2], )
+
+
+def p_var_empty(p):
+    """comma_var : empty"""
+    p[0] = tuple()
 
 
 def p_for_statement(p):
     """
-    for_statement : empty
-    """
-    pass
-
-
-def p_func_statement(p):
-    """
-    func_statement : empty
+    for_statement : KFOR
     """
     pass
 
 
 def p_assign_statement(p):
     """
-    assign_statement : var_assign_statement
-                     | const_assign_statement
-                     | def_statement
+    assign_statement : var_assign_statement NLD
+                     | const_assign_statement NLD
+                     | def_statement NLD
     """
+    p[0] = p[1]
 
 
 def p_assign_statement_default(p):  # add zero value handling / redeclare
@@ -248,6 +394,8 @@ def p_assign_statement_default(p):  # add zero value handling / redeclare
 
         else:
             names[p[2]] = ""  # zero accepted
+
+    p[0] = ("var", p[2], p[3], p[4])
 
 
 def p_assign_expr(p):
@@ -316,6 +464,7 @@ def p_assign_const_statement(p):
             names[p[2]] = ""  # zero accepted
 
     constants.add(p[2])
+    p[0] = ("constant", p[2], p[3], p[4])
 
 
 def p_def_statement(p):
@@ -326,6 +475,7 @@ def p_def_statement(p):
         return
 
     names[p[1]] = p[3]
+    p[0] = ("def", p[1], type(names[p[1]]), p[3])
 
 
 def p_statement_reassign(p):
@@ -346,6 +496,7 @@ def p_statement_reassign(p):
         return
 
     names[p[1]] = p[3]
+    p[0] = ("reassign", p[1], type(names[p[1]]), p[3])
 
 
 def p_statement_reassign_op(p):
@@ -386,6 +537,8 @@ def p_statement_reassign_op(p):
             print("ZeroDivisionError: division by zero")
             return
         names[p[1]] %= p[3]
+
+    p[0] = ("reassign_op", p[1], type(names[p[1]]), names[p[1]])
 
 
 def p_assign_oper(p):
@@ -548,6 +701,27 @@ def p_rel_op(p):
     p[0] = p[1]
 
 
+def p_print_statement(p):
+    """print_statement : KFMT '.' KPRINT '(' expr_cond args ')' NLD"""
+    if not is_fmt:
+        print("ImportError: 'fmt' is not imported")
+        return
+
+    p[0] = ("print", p[5], *p[6][::-1])
+
+
+def p_args(p):
+    """
+    args : ',' expr_cond args
+    """
+    p[0] = p[3] + (p[2], )
+
+
+def p_args_empty(p):
+    """args : empty"""
+    p[0] = tuple()
+
+
 def p_error(p):
     if p:
         print("Syntax error at '%s'" % p.value)
@@ -559,30 +733,36 @@ yacc.yacc()
 
 # debugging process(stack view)
 
-# import logging
-#
-# logging.basicConfig(
-#     level=logging.INFO,
-#     filename="parse_log.txt"
-# )
+import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    filename="parse_log.txt"
+)
 
-# file execution
-if len(sys.argv) == 2:
-    with open(sys.argv[1]) as f:
-        data = f.read()
-
-    yacc.parse(data)
+# file execution for debug
+with open("input.txt") as f:
+    yacc.parse(f.read(), debug=logging.getLogger())
+    input()
     exit(0)
 
-# interactive mode
-while True:
-    print(names)
-    try:
-        s = input('stmt > ')
-    except EOFError:
-        break
-    if not s:
-        continue
-    # yacc.parse(s, debug=logging.getLogger())
-    yacc.parse(s)
+
+# # file execution
+# if len(sys.argv) == 2:
+#     with open(sys.argv[1]) as f:
+#         data = f.read()
+#
+#     yacc.parse(data)
+#     exit(0)
+#
+# # interactive mode
+# while True:
+#     print(names)
+#     try:
+#         s = input('stmt > ')
+#     except EOFError:
+#         break
+#     if not s:
+#         continue
+#     # yacc.parse(s, debug=logging.getLogger())
+#     yacc.parse(s)

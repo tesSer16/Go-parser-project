@@ -1,0 +1,15 @@
+package main
+import "fmt"
+
+func main() {
+    var x int = 3
+    if x > 1 { 
+        fmt.Println("Hellorld")
+        
+    } else if 1 > x {
+        fmt.Println("frew")
+    } else{
+        fmt.Println("3.141592")
+    }
+    fmt.Println("Hello World")
+}

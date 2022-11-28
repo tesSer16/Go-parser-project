@@ -27,3 +27,20 @@
 5. break, continue, etc.
 6. ++ / --
 7. func 안에 func 불가
+
+
+# 11/28
+이번에 구현한 것
+- NLD token, NL grammar를 추가하여 new_line handling을 해결한 것 같습니다. 간단한 if, else문에서 줄바꿈의 유무에 따라 parser error의 유무를 확인했습니다.
+- 유사 parse_tree 제작. 각 grammar에서 주요한 value들을 재귀적인 튜플 형태로 반환하게 하였습니다. 프로그램을 실행하면 튜플형태의 parse tree를 종류별 stmt가 끝나면 출력합니다.
+- print_statement 추가 및 개별 statement의 detail 수정. 실행 해보면서 오류가 나거나, 수정해야겠다 싶은 부분을 수정했습니다.
+
+논외 사항
+- switch, if에서의 := 사용 -> ;(semicolon)을 허용하는 문법을 작성해야 해서 많은 수정이 필요할 수 있음
+- func의 구현 -> func 내에서 고려해야할 detail이 많고, main함수와 구별하기가 까다로움
+- 그 외 나머지 문법 들...
+
+앞으로 구현해야 할 것!
+- for_statement -> ++ / -- 를 구현해야 한다..
+- global_assign -> global_scope와 main_scope 구분이 필요 / global_scope는 코드 위치에 상관없이 먼저 선언 됨
+- 전체적인 점검 및 input 예시 작성
