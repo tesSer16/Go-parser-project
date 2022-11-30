@@ -328,7 +328,7 @@ def p_global_assign_const_statement(p):
 
 def p_if_statement(p):
     """
-    if_statement : KIF condition '{' NL statement NL '}' else_statement NLD
+    if_statement : KIF condition '{' NL statement '}' else_statement NLD
     """
     p[0] = (("if", p[2], p[5]), ) + p[8]
     print_list.append(f"If accepted: {p[0]}")
@@ -336,13 +336,13 @@ def p_if_statement(p):
 
 def p_else_statement_elif(p):
     """
-    else_statement : KELSE KIF condition '{' NL statement NL '}' else_statement
+    else_statement : KELSE KIF condition '{' NL statement '}' else_statement
     """
     p[0] = (("else if", p[3], p[6]), ) + p[9]
 
 
 def p_else_statement_else(p):
-    """else_statement : KELSE '{' NL statement NL '}'"""
+    """else_statement : KELSE '{' NL statement '}'"""
     p[0] = (("else", p[4]), )
 
 
@@ -460,7 +460,7 @@ def p_var_empty(p):
 
 def p_for_statement(p):
     """
-    for_statement : FOR single_line_statement_1 ';' condition ';' single_line_statement_2 '{' NL statement NL '}' NLD
+    for_statement : FOR single_line_statement_1 ';' condition ';' single_line_statement_2 '{' NL statement '}' NLD
     """
     p[0] = ("for_default", (p[2], p[4], p[6]), p[9])
     global in_loop
@@ -478,7 +478,7 @@ def p_FOR(p):
 
 def p_for_statement_condition(p):
     """
-    for_statement : FOR condition '{' statement '}' NLD
+    for_statement : FOR condition '{' NL statement '}' NLD
     """
     p[0] = ("for_condition", p[2], p[4])
     global in_loop
@@ -488,7 +488,7 @@ def p_for_statement_condition(p):
 
 def p_for_statement_infinite(p):
     """
-    for_statement : FOR '{' statement '}' NLD
+    for_statement : FOR '{' NL statement '}' NLD
     """
     p[0] = ("for_infinite", p[3])
     global in_loop
