@@ -79,7 +79,7 @@ def t_INT(t):
 
 
 def t_NLD(t):
-    r'[\n\t\s]+'
+    r'[\t\s]*[\n]+[\t\s]*'
     t.lexer.lineno += t.value.count('\n')
     return t
 
@@ -140,6 +140,7 @@ start = 'start'
 is_fmt = False
 in_loop = 0
 in_switch = 0
+is_error = False
 
 print_list = []
 error_list = []
@@ -199,7 +200,7 @@ def p_statement_empty(p):
 
 def p_main_statement(p):
     """
-    main_statement : global_statement KFUNC KMAIN '(' ')' '{' NL statement '}'
+    main_statement : global_statement KFUNC KMAIN '(' ')' '{' NL statement '}' NL
     """
     p[0] = (p[1], ("main", p[8]), None)
 
@@ -995,6 +996,8 @@ def p_args_empty(p):
 
 
 def p_error(p):
+    global is_error
+    is_error = True
     if p:
         print("SyntaxError: Syntax error at '%s'" % p.value)
     else:
@@ -1015,13 +1018,14 @@ logging.basicConfig(
 # file execution for debug
 with open("input.txt") as f:
     yacc.parse(f.read(), debug=logging.getLogger())
-    input()
 
 
-if error_list:
+if error_list or is_error:
     print(*error_list, sep='\n')
 else:
     print(*print_list, sep='\n')
+
+input()
 
 
 # # file execution

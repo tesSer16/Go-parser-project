@@ -15,7 +15,7 @@ func main() {
 
     for i := 0; i < 10; i++{
         if i % 2 == 0{
-            fmt.Println("even")
+            fmt.Println("even")	
             continue
         } else{
             fmt.Println("odd")
@@ -34,8 +34,7 @@ func main() {
             fmt.Println("x =", 4)
         default:
             break
-    }
-    
+    } 
     z = (1 > 3) == (4 < 2)
     fmt.Println(z)
 

@@ -1,786 +1,1378 @@
 INFO:root:PLY: PARSE DEBUG START
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 5
-INFO:root:Result : <tuple @ 0x299bf014040> (())
+INFO:root:Result : <tuple @ 0x2413d854040> (())
 INFO:root:Action : Reduce rule [import_statement -> KIMPORT STRING] with ['import','"fmt"'] and goto state 12
-INFO:root:Result : <tuple @ 0x299bfc79680> (('import', '"fmt"'))
+INFO:root:Result : <tuple @ 0x2413e5b8840> (('import', '"fmt"'))
 INFO:root:Action : Reduce rule [type -> KINT] with ['int'] and goto state 21
-INFO:root:Result : <str @ 0x299bf57c5b0> ('int')
+INFO:root:Result : <str @ 0x2413e572e30> ('int')
 INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x299bf016970> (3)
+INFO:root:Result : <int @ 0x2413d856970> (3)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 34
-INFO:root:Result : <int @ 0x299bf016970> (3)
+INFO:root:Result : <int @ 0x2413d856970> (3)
 INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=',3] and goto state 29
-INFO:root:Result : <int @ 0x299bf016970> (3)
+INFO:root:Result : <int @ 0x2413d856970> (3)
 INFO:root:Action : Reduce rule [global_var_assign_statement -> KVAR ID type assign_expr] with ['var','x','int',3] and goto state 8
-INFO:root:Result : <tuple @ 0x299bfb51e00> (('global_var_assign', 'x', 'int', 3))
-INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x299bfb51e00>] and goto state 6
-INFO:root:Result : <tuple @ 0x299bfb51e00> (('global_var_assign', 'x', 'int', 3))
+INFO:root:Result : <tuple @ 0x2413e494130> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x2413e494130>] and goto state 6
+INFO:root:Result : <tuple @ 0x2413e494130> (('global_var_assign', 'x', <class 'int'> ...)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 20
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x299bfb51e00>,'\n\n',()] and goto state 27
-INFO:root:Result : <tuple @ 0x299bfba3820> ((('global_var_assign', 'x', 'int', 3),))
+INFO:root:Result : <tuple @ 0x2413d854040> (())
+INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x2413e494130>,'\n\n',()] and goto state 27
+INFO:root:Result : <tuple @ 0x2413e4e1bb0> ((('global_var_assign', 'x', <class 'int' ...)
 INFO:root:Action : Reduce rule [NL -> NLD] with ['\n\n    '] and goto state 82
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
-INFO:root:Result : <str @ 0x299bfc335b0> ('+=')
+INFO:root:Result : <str @ 0x2413e572ab0> ('+=')
 INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 161
-INFO:root:Result : <int @ 0x299bf016930> (1)
+INFO:root:Result : <int @ 0x2413d856930> (1)
 INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['x','+=',1] and goto state 102
-INFO:root:Result : <tuple @ 0x299bfb62720> (('reassign_op', 'x', <class 'int'>, 4))
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x299bfb62720>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb62720> (('reassign_op', 'x', <class 'int'>, 4))
+INFO:root:Result : <tuple @ 0x2413e4a09f0> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x2413e4a09f0>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x2413e4a09f0> (('reassign_op_global', 'x', <class 'int' ...)
 INFO:root:Action : Reduce rule [type -> KSTRING] with ['string'] and goto state 158
-INFO:root:Result : <str @ 0x299bfc335b0> ('string')
+INFO:root:Result : <str @ 0x2413e572ab0> ('string')
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"123"'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc43670> ('123')
+INFO:root:Result : <str @ 0x2413e582870> ('123')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123'] and goto state 34
-INFO:root:Result : <str @ 0x299bfc43670> ('123')
+INFO:root:Result : <str @ 0x2413e582870> ('123')
 INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=','123'] and goto state 173
-INFO:root:Result : <str @ 0x299bfc43670> ('123')
+INFO:root:Result : <str @ 0x2413e582870> ('123')
 INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','y','string','123'] and goto state 98
-INFO:root:Result : <tuple @ 0x299bfb623b0> (('var', 'y', 'string', '123'))
-INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x299bfb623b0>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb623b0> (('var', 'y', 'string', '123'))
+INFO:root:Result : <tuple @ 0x2413e4a0680> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x2413e4a0680>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x2413e4a0680> (('var_assign', 'y', <class 'str'>, '123' ...)
 INFO:root:Action : Reduce rule [type -> KBOOL] with ['bool'] and goto state 158
-INFO:root:Result : <str @ 0x299bfc43930> ('bool')
+INFO:root:Result : <str @ 0x2413e582730> ('bool')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 31
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_expr -> empty] with [None] and goto state 173
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','z','bool',None] and goto state 98
-INFO:root:Result : <tuple @ 0x299bfb62360> (('var', 'z', 'bool', None))
-INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x299bfb62360>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb62360> (('var', 'z', 'bool', None))
+INFO:root:Result : <tuple @ 0x2413e4a0630> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x2413e4a0630>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x2413e4a0630> (('var_assign', 'z', <class 'bool'>, None ...)
 INFO:root:Action : Reduce rule [FOR -> KFOR] with ['for'] and goto state 97
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 35
-INFO:root:Result : <int @ 0x299bf016910> (0)
+INFO:root:Result : <int @ 0x2413d856910> (0)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [0] and goto state 159
-INFO:root:Result : <int @ 0x299bf016910> (0)
+INFO:root:Result : <int @ 0x2413d856910> (0)
 INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['i',':=',0] and goto state 126
-INFO:root:Result : <tuple @ 0x299bfb62310> (('def', 'i', <class 'int'>, 0))
-INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x299bfb62310>] and goto state 122
-INFO:root:Result : <tuple @ 0x299bfb62310> (('def', 'i', <class 'int'>, 0))
+INFO:root:Result : <tuple @ 0x2413e4a05e0> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x2413e4a05e0>] and goto state 122
+INFO:root:Result : <tuple @ 0x2413e4a05e0> (('def', 'i', <class 'int'>, 0))
 INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
-INFO:root:Result : <int @ 0x299bf016910> (0)
+INFO:root:Result : <int @ 0x2413d856910> (0)
 INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
-INFO:root:Result : <str @ 0x299bf7f4030> ('<')
+INFO:root:Result : <str @ 0x2413e131fb0> ('<')
 INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 71
-INFO:root:Result : <int @ 0x299bf016a50> (10)
+INFO:root:Result : <int @ 0x2413d856a50> (10)
 INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [0,'<',10] and goto state 170
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
 INFO:root:Action : Reduce rule [increase_statement -> ID PP] with ['i','++'] and goto state 128
-INFO:root:Result : <tuple @ 0x299bfc74400> (('increase', 'i'))
-INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x299bfc74400>] and goto state 198
-INFO:root:Result : <tuple @ 0x299bfc74400> (('increase', 'i'))
+INFO:root:Result : <tuple @ 0x2413e5b35c0> (('increase', 'i'))
+INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x2413e5b35c0>] and goto state 198
+INFO:root:Result : <tuple @ 0x2413e5b35c0> (('increase', 'i'))
 INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 225
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
-INFO:root:Result : <int @ 0x299bf016930> (1)
+INFO:root:Result : <int @ 0x2413d856930> (1)
 INFO:root:Action : Reduce rule [oper -> %] with ['%'] and goto state 45
-INFO:root:Result : <str @ 0x299bf56e1f0> ('%')
+INFO:root:Result : <str @ 0x2413deae1f0> ('%')
 INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 70
-INFO:root:Result : <int @ 0x299bf016950> (2)
+INFO:root:Result : <int @ 0x2413d856950> (2)
 INFO:root:Action : Reduce rule [expression -> expression oper expression] with [1,'%',2] and goto state 68
-INFO:root:Result : <int @ 0x299bf016930> (1)
+INFO:root:Result : <int @ 0x2413d856930> (1)
 INFO:root:Action : Reduce rule [rel_op -> EQ] with ['=='] and goto state 46
-INFO:root:Result : <str @ 0x299bfc43570> ('==')
+INFO:root:Result : <str @ 0x2413e572ab0> ('==')
 INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 71
-INFO:root:Result : <int @ 0x299bf016910> (0)
+INFO:root:Result : <int @ 0x2413d856910> (0)
 INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'==',0] and goto state 119
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x299bfc41db0>] and goto state 164
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2413e580db0>] and goto state 164
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"even"'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc41db0> ('even')
+INFO:root:Result : <str @ 0x2413e580db0> ('even')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['even'] and goto state 175
-INFO:root:Result : <str @ 0x299bfc41db0> ('even')
+INFO:root:Result : <str @ 0x2413e580db0> ('even')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','even',(),')',<str @ 0x299bfc41370>] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc74080> (('print', 'even'))
-INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
-INFO:root:Result : <tuple @ 0x299bf54b100> (('continue',))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
-INFO:root:Result : <tuple @ 0x299bfb9c5e0> ((('continue',),))
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x299bfc74080>,<tuple @ 0x299bfb9c5e0>] and goto state 176
-INFO:root:Result : <tuple @ 0x299bfc72a00> ((('print', 'even'), ('continue',)))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 190
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x299bfc41bf0>] and goto state 238
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [expression -> STRING] with ['"odd"'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc41bf0> ('odd')
-INFO:root:Action : Reduce rule [expr_cond -> expression] with ['odd'] and goto state 175
-INFO:root:Result : <str @ 0x299bfc41bf0> ('odd')
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','odd',(),')',<str @ 0x299bfc41cf0>] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc72700> (('print', 'odd'))
-INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
-INFO:root:Result : <tuple @ 0x299bf54b100> (('continue',))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
-INFO:root:Result : <tuple @ 0x299bfb9c5e0> ((('continue',),))
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x299bfc72700>,<tuple @ 0x299bfb9c5e0>] and goto state 244
-INFO:root:Result : <tuple @ 0x299bfc72640> ((('print', 'odd'), ('continue',)))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 249
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [else_statement -> KELSE { NL statement NL }] with ['else','{',None,<tuple @ 0x299bfc72640>,None,'}'] and goto state 215
-INFO:root:Result : <tuple @ 0x299bfc72600> (('else', (('print', 'odd'), ('continue', ...)
-INFO:root:Action : Reduce rule [if_statement -> KIF condition { NL statement NL } else_statement NLD] with ['if',False,'{',None,<tuple @ 0x299bfc72a00>,None,'}',<tuple @ 0x299bfc72600>,'\n    '] and goto state 87
-INFO:root:Result : <tuple @ 0x299bfc2bf80> ((('if', False, (('print', 'even'), ('con ...)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 112
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> if_statement statement] with [<tuple @ 0x299bfc2bf80>,()] and goto state 236
-INFO:root:Result : <tuple @ 0x299bfb9c5e0> (((('if', False, (('print', 'even'), ('co ...)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 242
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [for_statement -> FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL statement NL } NLD] with [None,<tuple @ 0x299bfb62310>,';',True,';',<tuple @ 0x299bfc74400>,'{',None,<tuple @ 0x299bfb9c5e0>,None,'}',<str @ 0x299bfc43570>] and goto state 89
-INFO:root:Result : <tuple @ 0x299bfc2cb40> (('for_default', (('def', 'i', <class 'in ...)
-INFO:root:Action : Reduce rule [SWITCH -> KSWITCH] with ['switch'] and goto state 96
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [expression -> ID] with ['x'] and goto state 35
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 121
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 169
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <tuple @ 0x2413d854040> (())
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT ( expr_cond args ) . LexToken(KCONTINUE,'continue',18,197)
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT ( expr_cond args ) . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT ( expr_cond args . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT ( expr_cond . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT ( . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . KPRINT . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL KFMT . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { NL . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition { . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF condition . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL KIF . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 { . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; single_line_statement_2 . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition ; . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; condition . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 ; . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR single_line_statement_1 . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement FOR . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD . error
+ERROR:root:Error  : KPACKAGE KMAIN . error
+ERROR:root:Error  : KPACKAGE . error
+ERROR:root:Error  : . error
+ERROR:root:Error  : . LexToken(NLD,'\n        ',18,205)
+ERROR:root:Error  : . LexToken(},'}',19,214)
+ERROR:root:Error  : . LexToken(KELSE,'else',19,216)
+ERROR:root:Error  : . LexToken({,'{',19,220)
+ERROR:root:Error  : . LexToken(NLD,'\n            ',19,221)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',20,234)
+ERROR:root:Error  : . LexToken(.,'.',20,237)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',20,238)
+ERROR:root:Error  : . LexToken((,'(',20,245)
+ERROR:root:Error  : . LexToken(STRING,'"odd"',20,246)
+ERROR:root:Error  : . LexToken(),')',20,251)
+ERROR:root:Error  : . LexToken(NLD,'\n            ',20,252)
+ERROR:root:Error  : . LexToken(KCONTINUE,'continue',21,265)
+ERROR:root:Error  : . LexToken(NLD,'\n        ',21,273)
+ERROR:root:Error  : . LexToken(},'}',22,282)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',22,283)
+ERROR:root:Error  : . LexToken(},'}',23,288)
+ERROR:root:Error  : . LexToken(NLD,'\n\n\n\n\n\n    ',23,289)
+ERROR:root:Error  : . LexToken(KSWITCH,'switch',29,299)
+ERROR:root:Error  : . LexToken(ID,'x',29,306)
+ERROR:root:Error  : . LexToken({,'{',29,307)
+ERROR:root:Error  : . LexToken(NLD,'\n        ',29,308)
+ERROR:root:Error  : . LexToken(KCASE,'case',30,317)
+ERROR:root:Error  : . LexToken(INT,3,30,322)
+ERROR:root:Error  : . LexToken(:,':',30,323)
+ERROR:root:Error  : . LexToken(NLD,'\n            ',30,324)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',31,337)
+ERROR:root:Error  : . LexToken(.,'.',31,340)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',31,341)
+ERROR:root:Error  : . LexToken((,'(',31,348)
+ERROR:root:Error  : . LexToken(STRING,'"x ="',31,349)
+ERROR:root:Error  : . LexToken(,,',',31,354)
+ERROR:root:Error  : . LexToken(INT,3,31,356)
+ERROR:root:Error  : . LexToken(),')',31,357)
+ERROR:root:Error  : . LexToken(NLD,'\n        ',31,358)
+ERROR:root:Error  : . LexToken(KCASE,'case',32,367)
+ERROR:root:Error  : . LexToken(INT,4,32,372)
+ERROR:root:Error  : . LexToken(:,':',32,373)
+ERROR:root:Error  : . LexToken(NLD,'\n            ',32,374)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',33,387)
+ERROR:root:Error  : . LexToken(.,'.',33,390)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',33,391)
+ERROR:root:Error  : . LexToken((,'(',33,398)
+ERROR:root:Error  : . LexToken(STRING,'"x ="',33,399)
+ERROR:root:Error  : . LexToken(,,',',33,404)
+ERROR:root:Error  : . LexToken(INT,4,33,406)
+ERROR:root:Error  : . LexToken(),')',33,407)
+ERROR:root:Error  : . LexToken(NLD,'\n        ',33,408)
+ERROR:root:Error  : . LexToken(KDEFAULT,'default',34,417)
+ERROR:root:Error  : . LexToken(:,':',34,424)
+ERROR:root:Error  : . LexToken(NLD,'\n            ',34,425)
+ERROR:root:Error  : . LexToken(KBREAK,'break',35,438)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',35,443)
+ERROR:root:Error  : . LexToken(},'}',36,448)
+ERROR:root:Error  : . LexToken(NLD,'\n    \n    ',36,449)
+ERROR:root:Error  : . LexToken(ID,'z',38,459)
+ERROR:root:Error  : . LexToken(=,'=',38,461)
+ERROR:root:Error  : . LexToken((,'(',38,463)
+ERROR:root:Error  : . LexToken(INT,1,38,464)
+ERROR:root:Error  : . LexToken(GE,'>',38,466)
+ERROR:root:Error  : . LexToken(INT,3,38,468)
+ERROR:root:Error  : . LexToken(),')',38,469)
+ERROR:root:Error  : . LexToken(EQ,'==',38,471)
+ERROR:root:Error  : . LexToken((,'(',38,474)
+ERROR:root:Error  : . LexToken(INT,4,38,475)
+ERROR:root:Error  : . LexToken(LT,'<',38,477)
+ERROR:root:Error  : . LexToken(INT,2,38,479)
+ERROR:root:Error  : . LexToken(),')',38,480)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',38,481)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',39,486)
+ERROR:root:Error  : . LexToken(.,'.',39,489)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',39,490)
+ERROR:root:Error  : . LexToken((,'(',39,497)
+ERROR:root:Error  : . LexToken(ID,'z',39,498)
+ERROR:root:Error  : . LexToken(),')',39,499)
+ERROR:root:Error  : . LexToken(NLD,'\n\n    ',39,500)
+ERROR:root:Error  : . LexToken(ID,'y',41,506)
+ERROR:root:Error  : . LexToken(PE,'+=',41,508)
+ERROR:root:Error  : . LexToken(STRING,'"456"',41,511)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',41,516)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',42,521)
+ERROR:root:Error  : . LexToken(.,'.',42,524)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',42,525)
+ERROR:root:Error  : . LexToken((,'(',42,532)
+ERROR:root:Error  : . LexToken(ID,'y',42,533)
+ERROR:root:Error  : . LexToken(),')',42,534)
+ERROR:root:Error  : . LexToken(NLD,'\n\n    ',42,539)
+ERROR:root:Error  : . LexToken(ID,'a',44,545)
+ERROR:root:Error  : . LexToken(DEF,':=',44,547)
+ERROR:root:Error  : . LexToken(INT,10,44,550)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',44,552)
+ERROR:root:Error  : . LexToken(ID,'a',45,557)
+ERROR:root:Error  : . LexToken(TE,'*=',45,559)
+ERROR:root:Error  : . LexToken(INT,4,45,562)
+ERROR:root:Error  : . LexToken(*,'*',45,564)
+ERROR:root:Error  : . LexToken((,'(',45,566)
+ERROR:root:Error  : . LexToken(INT,2,45,567)
+ERROR:root:Error  : . LexToken(+,'+',45,569)
+ERROR:root:Error  : . LexToken(-,'-',45,571)
+ERROR:root:Error  : . LexToken(INT,3,45,572)
+ERROR:root:Error  : . LexToken(),')',45,573)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',45,574)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',46,579)
+ERROR:root:Error  : . LexToken(.,'.',46,582)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',46,583)
+ERROR:root:Error  : . LexToken((,'(',46,590)
+ERROR:root:Error  : . LexToken(ID,'a',46,591)
+ERROR:root:Error  : . LexToken(),')',46,592)
+ERROR:root:Error  : . LexToken(NLD,'\n',46,593)
+ERROR:root:Error  : . LexToken(},'}',47,594)
+ERROR:root:Error  : . $end
+INFO:root:PLY: PARSE DEBUG START
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 5
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [import_statement -> KIMPORT STRING] with ['import','"fmt"'] and goto state 12
+INFO:root:Result : <tuple @ 0x22c3e2f8800> (('import', '"fmt"'))
+INFO:root:Action : Reduce rule [type -> KINT] with ['int'] and goto state 21
+INFO:root:Result : <str @ 0x22c3e2b2b70> ('int')
 INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 196
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [3,()] and goto state 195
-INFO:root:Result : <tuple @ 0x299bfb9c5e0> ((3,))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x299bfc43570>] and goto state 222
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc43570> ('x =')
-INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
-INFO:root:Result : <str @ 0x299bfc43570> ('x =')
-INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 202
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',3,()] and goto state 187
-INFO:root:Result : <tuple @ 0x299bfb23040> ((3,))
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(3,),')','\n        '] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc2bf80> (('print', 'x =', 3))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x299bfc2bf80>,()] and goto state 231
-INFO:root:Result : <tuple @ 0x299bfb23040> ((('print', 'x =', 3),))
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 196
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [4,()] and goto state 195
-INFO:root:Result : <tuple @ 0x299bfc17e80> ((4,))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x299bfc41bf0>] and goto state 222
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc41bf0> ('x =')
-INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
-INFO:root:Result : <str @ 0x299bfc41bf0> ('x =')
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 202
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',4,()] and goto state 187
-INFO:root:Result : <tuple @ 0x299bfbcd5e0> ((4,))
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(4,),')','\n        '] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc2ca80> (('print', 'x =', 4))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x299bfc2ca80>,()] and goto state 231
-INFO:root:Result : <tuple @ 0x299bfbcd5e0> ((('print', 'x =', 4),))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x299bfc41370>] and goto state 211
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [break_statement -> KBREAK NLD] with ['break','\n    '] and goto state 91
-INFO:root:Result : <tuple @ 0x299bf541130> (('break',))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 116
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [statement -> break_statement statement] with [('break',),()] and goto state 224
-INFO:root:Result : <tuple @ 0x299bfbcdaf0> ((('break',),))
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 235
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [case_var_without_default_statement -> empty] with [None] and goto state 233
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [case_var_statement -> KDEFAULT : NL statement case_var_without_default_statement] with ['default',':',None,(('break',),),()] and goto state 240
-INFO:root:Result : <tuple @ 0x299bfbcdfa0> ((('default', (('break',),)),))
-INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(4,),':',None,<tuple @ 0x299bfbcd5e0>,<tuple @ 0x299bfbcdfa0>] and goto state 240
-INFO:root:Result : <tuple @ 0x299bfc74080> ((('case', (4,), (('print', 'x =', 4),)), ...)
-INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(3,),':',None,<tuple @ 0x299bfb23040>,<tuple @ 0x299bfc74080>] and goto state 180
-INFO:root:Result : <tuple @ 0x299bfc3e600> ((('case', (3,), (('print', 'x =', 3),)), ...)
-INFO:root:Action : Reduce rule [switch_statement -> SWITCH expr_cond { NL case_var_statement } NLD] with [None,4,'{',None,<tuple @ 0x299bfc3e600>,'}','\n    \n    '] and goto state 88
-INFO:root:Result : <tuple @ 0x299bfc40300> (('switch_default', 4, (('case', (3,), (( ...)
-INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 64
-INFO:root:Result : <int @ 0x299bf016930> (1)
-INFO:root:Action : Reduce rule [rel_op -> GE] with ['>'] and goto state 46
-INFO:root:Result : <str @ 0x299bf7f4070> ('>')
-INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 71
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'>',3] and goto state 65
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 36
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 79
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
-INFO:root:Result : <str @ 0x299bf7f4030> ('<')
-INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 71
-INFO:root:Result : <int @ 0x299bf016950> (2)
-INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [4,'<',2] and goto state 65
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 74
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> condition EQ condition] with [False,'==',False] and goto state 36
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [expr_cond -> condition] with [True] and goto state 160
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [reassign_statement -> ID = expr_cond] with ['z','=',True] and goto state 102
-INFO:root:Result : <tuple @ 0x299bfb622c0> (('reassign', 'z', <class 'bool'>, True))
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x299bfb622c0>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb622c0> (('reassign', 'z', <class 'bool'>, True))
-INFO:root:Action : Reduce rule [expression -> ID] with ['z'] and goto state 35
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [True] and goto state 175
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',True,(),')','\n    '] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc74080> (('print', True))
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 34
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=',3] and goto state 29
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [global_var_assign_statement -> KVAR ID type assign_expr] with ['var','x','int',3] and goto state 8
+INFO:root:Result : <tuple @ 0x22c3e1d4130> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x22c3e1d4130>] and goto state 6
+INFO:root:Result : <tuple @ 0x22c3e1d4130> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 20
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x22c3e1d4130>,'\n\n',()] and goto state 27
+INFO:root:Result : <tuple @ 0x22c3e221bb0> ((('global_var_assign', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n\n    '] and goto state 82
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
-INFO:root:Result : <str @ 0x299bfc41fb0> ('+=')
-INFO:root:Action : Reduce rule [expression -> STRING] with ['"456"'] and goto state 161
-INFO:root:Result : <str @ 0x299bfc414f0> ('456')
-INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['y','+=','456'] and goto state 102
-INFO:root:Result : <tuple @ 0x299bfb62270> (('reassign_op', 'y', <class 'str'>, '123 ...)
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x299bfb62270>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb62270> (('reassign_op', 'y', <class 'str'>, '123 ...)
-INFO:root:Action : Reduce rule [expression -> ID] with ['y'] and goto state 35
-INFO:root:Result : <str @ 0x299bfc41770> ('123456')
-INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123456'] and goto state 175
-INFO:root:Result : <str @ 0x299bfc41770> ('123456')
+INFO:root:Result : <str @ 0x22c3e2b2970> ('+=')
+INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 161
+INFO:root:Result : <int @ 0x22c3d676930> (1)
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['x','+=',1] and goto state 102
+INFO:root:Result : <tuple @ 0x22c3e1e09f0> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x22c3e1e09f0>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e09f0> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [type -> KSTRING] with ['string'] and goto state 158
+INFO:root:Result : <str @ 0x22c3e2b2970> ('string')
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"123"'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2c2630> ('123')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123'] and goto state 34
+INFO:root:Result : <str @ 0x22c3e2c2630> ('123')
+INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=','123'] and goto state 173
+INFO:root:Result : <str @ 0x22c3e2c2630> ('123')
+INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','y','string','123'] and goto state 98
+INFO:root:Result : <tuple @ 0x22c3e1e0680> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x22c3e1e0680>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e0680> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [type -> KBOOL] with ['bool'] and goto state 158
+INFO:root:Result : <str @ 0x22c3e2b2970> ('bool')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 31
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [assign_expr -> empty] with [None] and goto state 173
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','z','bool',None] and goto state 98
+INFO:root:Result : <tuple @ 0x22c3e1e0630> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x22c3e1e0630>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e0630> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [FOR -> KFOR] with ['for'] and goto state 97
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676910> (0)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [0] and goto state 159
+INFO:root:Result : <int @ 0x22c3d676910> (0)
+INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['i',':=',0] and goto state 126
+INFO:root:Result : <tuple @ 0x22c3e1e05e0> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x22c3e1e05e0>] and goto state 122
+INFO:root:Result : <tuple @ 0x22c3e1e05e0> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
+INFO:root:Result : <int @ 0x22c3d676910> (0)
+INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
+INFO:root:Result : <str @ 0x22c3de71fb0> ('<')
+INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 71
+INFO:root:Result : <int @ 0x22c3d676a50> (10)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [0,'<',10] and goto state 170
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [increase_statement -> ID PP] with ['i','++'] and goto state 128
+INFO:root:Result : <tuple @ 0x22c3e2f3580> (('increase', 'i'))
+INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x22c3e2f3580>] and goto state 198
+INFO:root:Result : <tuple @ 0x22c3e2f3580> (('increase', 'i'))
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 225
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
+INFO:root:Result : <int @ 0x22c3d676930> (1)
+INFO:root:Action : Reduce rule [oper -> %] with ['%'] and goto state 45
+INFO:root:Result : <str @ 0x22c3dbee230> ('%')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 70
+INFO:root:Result : <int @ 0x22c3d676950> (2)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [1,'%',2] and goto state 68
+INFO:root:Result : <int @ 0x22c3d676930> (1)
+INFO:root:Action : Reduce rule [rel_op -> EQ] with ['=='] and goto state 46
+INFO:root:Result : <str @ 0x22c3e2c2370> ('==')
+INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 71
+INFO:root:Result : <int @ 0x22c3d676910> (0)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'==',0] and goto state 119
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x22c3e2b2970>] and goto state 164
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"even"'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2b2970> ('even')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['even'] and goto state 175
+INFO:root:Result : <str @ 0x22c3e2b2970> ('even')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','123456',(),')','\n    '] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc72640> (('print', '123456'))
-INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 35
-INFO:root:Result : <int @ 0x299bf016a50> (10)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [10] and goto state 159
-INFO:root:Result : <int @ 0x299bf016a50> (10)
-INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['a',':=',10] and goto state 100
-INFO:root:Result : <tuple @ 0x299bfb62220> (('def', 'a', <class 'int'>, 10))
-INFO:root:Action : Reduce rule [assign_statement -> def_statement NLD] with [<tuple @ 0x299bfb62220>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb62220> (('def', 'a', <class 'int'>, 10))
-INFO:root:Action : Reduce rule [assign_oper -> TE] with ['*='] and goto state 144
-INFO:root:Result : <str @ 0x299bfc43970> ('*=')
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 161
-INFO:root:Result : <int @ 0x299bf016990> (4)
-INFO:root:Action : Reduce rule [oper -> *] with ['*'] and goto state 45
-INFO:root:Result : <str @ 0x299bf3c84b0> ('*')
-INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 76
-INFO:root:Result : <int @ 0x299bf016950> (2)
-INFO:root:Action : Reduce rule [oper -> +] with ['+'] and goto state 45
-INFO:root:Result : <str @ 0x299bf650070> ('+')
-INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 62
-INFO:root:Result : <int @ 0x299bf016970> (3)
-INFO:root:Action : Reduce rule [expression -> - expression] with ['-',3] and goto state 70
-INFO:root:Result : <int @ 0x299bf0168b0> (-3)
-INFO:root:Action : Reduce rule [expression -> expression oper expression] with [2,'+',-3] and goto state 76
-INFO:root:Result : <int @ 0x299bf0168f0> (-1)
-INFO:root:Action : Reduce rule [expression -> ( expression )] with ['(',-1,')'] and goto state 70
-INFO:root:Result : <int @ 0x299bf0168f0> (-1)
-INFO:root:Action : Reduce rule [expression -> expression oper expression] with [4,'*',-1] and goto state 161
-INFO:root:Result : <int @ 0x299bf016890> (-4)
-INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['a','*=',-4] and goto state 102
-INFO:root:Result : <tuple @ 0x299bfb621d0> (('reassign_op', 'a', <class 'int'>, -40))
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x299bfb621d0>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x299bfb621d0> (('reassign_op', 'a', <class 'int'>, -40))
-INFO:root:Action : Reduce rule [expression -> ID] with ['a'] and goto state 35
-INFO:root:Result : <int @ 0x299bfc258d0> (-40)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [-40] and goto state 175
-INFO:root:Result : <int @ 0x299bfc258d0> (-40)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x299bf014040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',-40,(),')','\n'] and goto state 86
-INFO:root:Result : <tuple @ 0x299bfc72700> (('print', -40))
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','even',(),')','\n'] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2f3200> (('print', 'even'))
+INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
+INFO:root:Result : <tuple @ 0x22c3dbcb100> (('continue',))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3e21a970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x22c3e2f3200>,<tuple @ 0x22c3e21a970>] and goto state 176
+INFO:root:Result : <tuple @ 0x22c3e2f1b80> ((('print', 'even'), ('continue',)))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 190
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x22c3e2c0db0>] and goto state 238
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"odd"'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2c0db0> ('odd')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['odd'] and goto state 175
+INFO:root:Result : <str @ 0x22c3e2c0db0> ('odd')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','odd',(),')',<str @ 0x22c3e2c0830>] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2f1880> (('print', 'odd'))
+INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
+INFO:root:Result : <tuple @ 0x22c3dbcb100> (('continue',))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3e21a970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x22c3e2f1880>,<tuple @ 0x22c3e21a970>] and goto state 244
+INFO:root:Result : <tuple @ 0x22c3e2f17c0> ((('print', 'odd'), ('continue',)))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 249
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [else_statement -> KELSE { NL statement NL }] with ['else','{',None,<tuple @ 0x22c3e2f17c0>,None,'}'] and goto state 215
+INFO:root:Result : <tuple @ 0x22c3e2f1780> (('else', (('print', 'odd'), ('continue', ...)
+INFO:root:Action : Reduce rule [if_statement -> KIF condition { NL statement NL } else_statement NLD] with ['if',False,'{',None,<tuple @ 0x22c3e2f1b80>,None,'}',<tuple @ 0x22c3e2f1780>,'\n    '] and goto state 87
+INFO:root:Result : <tuple @ 0x22c3e2ab0c0> ((('if', False, (('print', 'even'), ('con ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 112
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> if_statement statement] with [<tuple @ 0x22c3e2ab0c0>,()] and goto state 236
+INFO:root:Result : <tuple @ 0x22c3e21a970> (((('if', False, (('print', 'even'), ('co ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 242
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [for_statement -> FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL statement NL } NLD] with [None,<tuple @ 0x22c3e1e05e0>,';',True,';',<tuple @ 0x22c3e2f3580>,'{',None,<tuple @ 0x22c3e21a970>,None,'}',<str @ 0x22c3e2c2370>] and goto state 89
+INFO:root:Result : <tuple @ 0x22c3e2abc40> (('for_default', (('def', 'i', <class 'in ...)
+INFO:root:Action : Reduce rule [SWITCH -> KSWITCH] with ['switch'] and goto state 96
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> ID] with ['x'] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 121
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 169
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 196
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [3,()] and goto state 195
+INFO:root:Result : <tuple @ 0x22c3e21a970> ((3,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x22c3e2b2970>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2b2970> ('x =')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
+INFO:root:Result : <str @ 0x22c3e2b2970> ('x =')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 202
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',3,()] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3e1a1a60> ((3,))
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(3,),')','\n        '] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2ab0c0> (('print', 'x =', 3))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x299bf014040> (())
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x22c3e2ab0c0>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x22c3e1a1a60> ((('print', 'x =', 3),))
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 196
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [4,()] and goto state 195
+INFO:root:Result : <tuple @ 0x22c3e2a5250> ((4,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x22c3e2c2570>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2c2570> ('x =')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
+INFO:root:Result : <str @ 0x22c3e2c2570> ('x =')
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 202
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',4,()] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3e245970> ((4,))
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(4,),')','\n        '] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2abb80> (('print', 'x =', 4))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x22c3e2abb80>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x22c3e245970> ((('print', 'x =', 4),))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x22c3e2c08b0>] and goto state 211
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [break_statement -> KBREAK NLD] with ['break','\n    '] and goto state 91
+INFO:root:Result : <tuple @ 0x22c3dbc1130> (('break',))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 116
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [statement -> break_statement statement] with [('break',),()] and goto state 224
+INFO:root:Result : <tuple @ 0x22c3e245a60> ((('break',),))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 235
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [case_var_without_default_statement -> empty] with [None] and goto state 233
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [case_var_statement -> KDEFAULT : NL statement case_var_without_default_statement] with ['default',':',None,(('break',),),()] and goto state 240
+INFO:root:Result : <tuple @ 0x22c3e323280> ((('default', (('break',),)),))
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(4,),':',None,<tuple @ 0x22c3e245970>,<tuple @ 0x22c3e323280>] and goto state 240
+INFO:root:Result : <tuple @ 0x22c3e2f3200> ((('case', (4,), (('print', 'x =', 4),)), ...)
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(3,),':',None,<tuple @ 0x22c3e1a1a60>,<tuple @ 0x22c3e2f3200>] and goto state 180
+INFO:root:Result : <tuple @ 0x22c3e2bf8c0> ((('case', (3,), (('print', 'x =', 3),)), ...)
+INFO:root:Action : Reduce rule [switch_statement -> SWITCH expr_cond { NL case_var_statement } NLD] with [None,4,'{',None,<tuple @ 0x22c3e2bf8c0>,'}','\n    \n    '] and goto state 88
+INFO:root:Result : <tuple @ 0x22c3e2bf100> (('switch_default', 4, (('case', (3,), (( ...)
+INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 64
+INFO:root:Result : <int @ 0x22c3d676930> (1)
+INFO:root:Action : Reduce rule [rel_op -> GE] with ['>'] and goto state 46
+INFO:root:Result : <str @ 0x22c3de73030> ('>')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 71
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'>',3] and goto state 65
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 36
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 79
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
+INFO:root:Result : <str @ 0x22c3de71fb0> ('<')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 71
+INFO:root:Result : <int @ 0x22c3d676950> (2)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [4,'<',2] and goto state 65
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 74
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> condition EQ condition] with [False,'==',False] and goto state 36
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [expr_cond -> condition] with [True] and goto state 160
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [reassign_statement -> ID = expr_cond] with ['z','=',True] and goto state 102
+INFO:root:Result : <tuple @ 0x22c3e1e0590> (('reassign', 'z', <class 'bool'>, True))
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x22c3e1e0590>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e0590> (('reassign', 'z', <class 'bool'>, True))
+INFO:root:Action : Reduce rule [expression -> ID] with ['z'] and goto state 35
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [True] and goto state 175
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',True,(),')','\n\n    '] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2f3200> (('print', True))
+INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
+INFO:root:Result : <str @ 0x22c3e2c0df0> ('+=')
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"456"'] and goto state 161
+INFO:root:Result : <str @ 0x22c3e2c0db0> ('456')
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['y','+=','456'] and goto state 102
+INFO:root:Result : <tuple @ 0x22c3e1e0540> (('reassign_op', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x22c3e1e0540>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e0540> (('reassign_op', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [expression -> ID] with ['y'] and goto state 35
+INFO:root:Result : <str @ 0x22c3e2c07b0> ('123456')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123456'] and goto state 175
+INFO:root:Result : <str @ 0x22c3e2c07b0> ('123456')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','123456',(),')','\n\n    '] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2f17c0> (('print', '123456'))
+INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 35
+INFO:root:Result : <int @ 0x22c3d676a50> (10)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [10] and goto state 159
+INFO:root:Result : <int @ 0x22c3d676a50> (10)
+INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['a',':=',10] and goto state 100
+INFO:root:Result : <tuple @ 0x22c3e1e04f0> (('def', 'a', <class 'int'>, 10))
+INFO:root:Action : Reduce rule [assign_statement -> def_statement NLD] with [<tuple @ 0x22c3e1e04f0>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e04f0> (('def', 'a', <class 'int'>, 10))
+INFO:root:Action : Reduce rule [assign_oper -> TE] with ['*='] and goto state 144
+INFO:root:Result : <str @ 0x22c3e2c2370> ('*=')
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 161
+INFO:root:Result : <int @ 0x22c3d676990> (4)
+INFO:root:Action : Reduce rule [oper -> *] with ['*'] and goto state 45
+INFO:root:Result : <str @ 0x22c3da484b0> ('*')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 76
+INFO:root:Result : <int @ 0x22c3d676950> (2)
+INFO:root:Action : Reduce rule [oper -> +] with ['+'] and goto state 45
+INFO:root:Result : <str @ 0x22c3ddd00b0> ('+')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 62
+INFO:root:Result : <int @ 0x22c3d676970> (3)
+INFO:root:Action : Reduce rule [expression -> - expression] with ['-',3] and goto state 70
+INFO:root:Result : <int @ 0x22c3d6768b0> (-3)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [2,'+',-3] and goto state 76
+INFO:root:Result : <int @ 0x22c3d6768f0> (-1)
+INFO:root:Action : Reduce rule [expression -> ( expression )] with ['(',-1,')'] and goto state 70
+INFO:root:Result : <int @ 0x22c3d6768f0> (-1)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [4,'*',-1] and goto state 161
+INFO:root:Result : <int @ 0x22c3d676890> (-4)
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['a','*=',-4] and goto state 102
+INFO:root:Result : <tuple @ 0x22c3e1e04a0> (('reassign_op', 'a', <class 'int'>, -40))
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x22c3e1e04a0>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x22c3e1e04a0> (('reassign_op', 'a', <class 'int'>, -40))
+INFO:root:Action : Reduce rule [expression -> ID] with ['a'] and goto state 35
+INFO:root:Result : <int @ 0x22c3e2a49b0> (-40)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [-40] and goto state 175
+INFO:root:Result : <int @ 0x22c3e2a49b0> (-40)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',-40,(),')','\n'] and goto state 86
+INFO:root:Result : <tuple @ 0x22c3e2f1880> (('print', -40))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3d674040> (())
 INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', -40),()] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfbcdfa0> ((('print', -40),))
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb621d0>,<tuple @ 0x299bfbcdfa0>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfc72600> ((('reassign_op', 'a', <class 'int'>, -40 ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb62220>,<tuple @ 0x299bfc72600>] and goto state 111
-INFO:root:Result : <tuple @ 0x299bfc3e480> ((('def', 'a', <class 'int'>, 10), ('reas ...)
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x299bfc72640>,<tuple @ 0x299bfc3e480>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfb62180> ((('print', '123456'), ('def', 'a', <clas ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb62270>,<tuple @ 0x299bfb62180>] and goto state 111
-INFO:root:Result : <tuple @ 0x299bfba4b80> ((('reassign_op', 'y', <class 'str'>, '12 ...)
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', True),<tuple @ 0x299bfba4b80>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfb711c0> ((('print', True), ('reassign_op', 'y', < ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb622c0>,<tuple @ 0x299bfb711c0>] and goto state 113
-INFO:root:Result : <tuple @ 0x299bfb7d0a0> ((('reassign', 'z', <class 'bool'>, True) ...)
-INFO:root:Action : Reduce rule [statement -> switch_statement statement] with [<tuple @ 0x299bfc40300>,<tuple @ 0x299bfb7d0a0>] and goto state 114
-INFO:root:Result : <tuple @ 0x299bfb47f90> ((('switch_default', 4, (('case', (3,), ( ...)
-INFO:root:Action : Reduce rule [statement -> for_statement statement] with [<tuple @ 0x299bfc2cb40>,<tuple @ 0x299bfb47f90>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfb47f20> ((('for_default', (('def', 'i', <class 'i ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb62360>,<tuple @ 0x299bfb47f20>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfb88ec0> ((('var', 'z', 'bool', None), ('for_defau ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb623b0>,<tuple @ 0x299bfb88ec0>] and goto state 115
-INFO:root:Result : <tuple @ 0x299bfb88e40> ((('var', 'y', 'string', '123'), ('var',  ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x299bfb62720>,<tuple @ 0x299bfb88e40>] and goto state 85
-INFO:root:Result : <tuple @ 0x299bfb5dd30> ((('reassign_op', 'x', <class 'int'>, 4), ...)
-INFO:root:Action : Reduce rule [main_statement -> global_statement KFUNC KMAIN ( ) { NL statement }] with [<tuple @ 0x299bfba3820>,'func','main','(',')','{',None,<tuple @ 0x299bfb5dd30>,'}'] and goto state 28
-INFO:root:Result : <tuple @ 0x299bfc3e480> (((('global_var_assign', 'x', 'int', 3),) ...)
-INFO:root:Action : Reduce rule [start -> KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement] with ['package','main','\n\n',(),<tuple @ 0x299bfc79680>,'\n\n\n',<tuple @ 0x299bfc3e480>] and goto state 1
-INFO:root:Result : <tuple @ 0x299bfb62180> (('start', (), ('import', '"fmt"'), ((('g ...)
-INFO:root:Done   : Returning <tuple @ 0x299bfb62180> (('start', (), ('import', '"fmt"'), ((('g ...)
+INFO:root:Result : <tuple @ 0x22c3e323280> ((('print', -40),))
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e04a0>,<tuple @ 0x22c3e323280>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e2f1780> ((('reassign_op', 'a', <class 'int'>, -40 ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e04f0>,<tuple @ 0x22c3e2f1780>] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3e2bf480> ((('def', 'a', <class 'int'>, 10), ('reas ...)
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x22c3e2f17c0>,<tuple @ 0x22c3e2bf480>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e1e0450> ((('print', '123456'), ('def', 'a', <clas ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e0540>,<tuple @ 0x22c3e1e0450>] and goto state 111
+INFO:root:Result : <tuple @ 0x22c3e223db0> ((('reassign_op', 'y', <class 'str'>, '12 ...)
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', True),<tuple @ 0x22c3e223db0>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e1f1040> ((('print', True), ('reassign_op', 'y', < ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e0590>,<tuple @ 0x22c3e1f1040>] and goto state 113
+INFO:root:Result : <tuple @ 0x22c3e1f1ee0> ((('reassign', 'z', <class 'bool'>, True) ...)
+INFO:root:Action : Reduce rule [statement -> switch_statement statement] with [<tuple @ 0x22c3e2bf100>,<tuple @ 0x22c3e1f1ee0>] and goto state 114
+INFO:root:Result : <tuple @ 0x22c3e1eb0b0> ((('switch_default', 4, (('case', (3,), ( ...)
+INFO:root:Action : Reduce rule [statement -> for_statement statement] with [<tuple @ 0x22c3e2abc40>,<tuple @ 0x22c3e1eb0b0>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e1eb040> ((('for_default', (('def', 'i', <class 'i ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e0630>,<tuple @ 0x22c3e1eb040>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e207f40> ((('var_assign', 'z', <class 'bool'>, Non ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e0680>,<tuple @ 0x22c3e207f40>] and goto state 115
+INFO:root:Result : <tuple @ 0x22c3e207ec0> ((('var_assign', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x22c3e1e09f0>,<tuple @ 0x22c3e207ec0>] and goto state 85
+INFO:root:Result : <tuple @ 0x22c3e1ddd30> ((('reassign_op_global', 'x', <class 'int ...)
+INFO:root:Action : Reduce rule [main_statement -> global_statement KFUNC KMAIN ( ) { NL statement }] with [<tuple @ 0x22c3e221bb0>,'func','main','(',')','{',None,<tuple @ 0x22c3e1ddd30>,'}'] and goto state 28
+INFO:root:Result : <tuple @ 0x22c3e2bf480> (((('global_var_assign', 'x', <class 'int ...)
+INFO:root:Action : Reduce rule [start -> KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement] with ['package','main','\n\n',(),<tuple @ 0x22c3e2f8800>,'\n\n\n',<tuple @ 0x22c3e2bf480>] and goto state 1
+INFO:root:Result : <tuple @ 0x22c3e1e0450> (('start', (), ('import', '"fmt"'), ((('g ...)
+INFO:root:Done   : Returning <tuple @ 0x22c3e1e0450> (('start', (), ('import', '"fmt"'), ((('g ...)
 INFO:root:PLY: PARSE DEBUG END
 INFO:root:PLY: PARSE DEBUG START
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 5
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [import_statement -> KIMPORT STRING] with ['import','"fmt"'] and goto state 12
-INFO:root:Result : <tuple @ 0x2ac5a6d8840> (('import', '"fmt"'))
+INFO:root:Result : <tuple @ 0x1c2bf878780> (('import', '"fmt"'))
 INFO:root:Action : Reduce rule [type -> KINT] with ['int'] and goto state 21
-INFO:root:Result : <str @ 0x2ac5a692b30> ('int')
+INFO:root:Result : <str @ 0x1c2bf832b30> ('int')
 INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 34
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=',3] and goto state 29
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [global_var_assign_statement -> KVAR ID type assign_expr] with ['var','x','int',3] and goto state 8
-INFO:root:Result : <tuple @ 0x2ac5a5b40e0> (('global_var_assign', 'x', <class 'int'> ...)
-INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x2ac5a5b40e0>] and goto state 6
-INFO:root:Result : <tuple @ 0x2ac5a5b40e0> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Result : <tuple @ 0x1c2bf754130> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x1c2bf754130>] and goto state 6
+INFO:root:Result : <tuple @ 0x1c2bf754130> (('global_var_assign', 'x', <class 'int'> ...)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 20
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x2ac5a5b40e0>,'\n\n',()] and goto state 27
-INFO:root:Result : <tuple @ 0x2ac5a602a60> ((('global_var_assign', 'x', <class 'int' ...)
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x1c2bf754130>,'\n\n',()] and goto state 27
+INFO:root:Result : <tuple @ 0x1c2bf7a1bb0> ((('global_var_assign', 'x', <class 'int' ...)
 INFO:root:Action : Reduce rule [NL -> NLD] with ['\n\n    '] and goto state 82
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
-INFO:root:Result : <str @ 0x2ac5a692930> ('+=')
+INFO:root:Result : <str @ 0x1c2bf832770> ('+=')
 INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 161
-INFO:root:Result : <int @ 0x2ac59a76930> (1)
+INFO:root:Result : <int @ 0x1c2bef66930> (1)
 INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['x','+=',1] and goto state 102
-INFO:root:Result : <tuple @ 0x2ac5a5c09a0> (('reassign_op_global', 'x', <class 'int' ...)
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x2ac5a5c09a0>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c09a0> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Result : <tuple @ 0x1c2bf7609f0> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x1c2bf7609f0>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x1c2bf7609f0> (('reassign_op_global', 'x', <class 'int' ...)
 INFO:root:Action : Reduce rule [type -> KSTRING] with ['string'] and goto state 158
-INFO:root:Result : <str @ 0x2ac5a692930> ('string')
+INFO:root:Result : <str @ 0x1c2bf832770> ('string')
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"123"'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a6a2670> ('123')
+INFO:root:Result : <str @ 0x1c2bf842770> ('123')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123'] and goto state 34
-INFO:root:Result : <str @ 0x2ac5a6a2670> ('123')
+INFO:root:Result : <str @ 0x1c2bf842770> ('123')
 INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=','123'] and goto state 173
-INFO:root:Result : <str @ 0x2ac5a6a2670> ('123')
+INFO:root:Result : <str @ 0x1c2bf842770> ('123')
 INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','y','string','123'] and goto state 98
-INFO:root:Result : <tuple @ 0x2ac5a5c0630> (('var_assign', 'y', <class 'str'>, '123' ...)
-INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x2ac5a5c0630>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c0630> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Result : <tuple @ 0x1c2bf760680> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x1c2bf760680>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x1c2bf760680> (('var_assign', 'y', <class 'str'>, '123' ...)
 INFO:root:Action : Reduce rule [type -> KBOOL] with ['bool'] and goto state 158
-INFO:root:Result : <str @ 0x2ac5a692930> ('bool')
+INFO:root:Result : <str @ 0x1c2bf832770> ('bool')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 31
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_expr -> empty] with [None] and goto state 173
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','z','bool',None] and goto state 98
-INFO:root:Result : <tuple @ 0x2ac5a5c05e0> (('var_assign', 'z', <class 'bool'>, None ...)
-INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x2ac5a5c05e0>,'\n\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c05e0> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Result : <tuple @ 0x1c2bf760630> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x1c2bf760630>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x1c2bf760630> (('var_assign', 'z', <class 'bool'>, None ...)
 INFO:root:Action : Reduce rule [FOR -> KFOR] with ['for'] and goto state 97
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76910> (0)
+INFO:root:Result : <int @ 0x1c2bef66910> (0)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [0] and goto state 159
-INFO:root:Result : <int @ 0x2ac59a76910> (0)
+INFO:root:Result : <int @ 0x1c2bef66910> (0)
 INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['i',':=',0] and goto state 126
-INFO:root:Result : <tuple @ 0x2ac5a5c0590> (('def', 'i', <class 'int'>, 0))
-INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x2ac5a5c0590>] and goto state 122
-INFO:root:Result : <tuple @ 0x2ac5a5c0590> (('def', 'i', <class 'int'>, 0))
+INFO:root:Result : <tuple @ 0x1c2bf7605e0> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x1c2bf7605e0>] and goto state 122
+INFO:root:Result : <tuple @ 0x1c2bf7605e0> (('def', 'i', <class 'int'>, 0))
 INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
-INFO:root:Result : <int @ 0x2ac59a76910> (0)
+INFO:root:Result : <int @ 0x1c2bef66910> (0)
 INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
-INFO:root:Result : <str @ 0x2ac5a151f30> ('<')
+INFO:root:Result : <str @ 0x1c2bf2f1f70> ('<')
 INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 71
-INFO:root:Result : <int @ 0x2ac59a76a50> (10)
+INFO:root:Result : <int @ 0x1c2bef66a50> (10)
 INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [0,'<',10] and goto state 170
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
 INFO:root:Action : Reduce rule [increase_statement -> ID PP] with ['i','++'] and goto state 128
-INFO:root:Result : <tuple @ 0x2ac5a6d35c0> (('increase', 'i'))
-INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x2ac5a6d35c0>] and goto state 198
-INFO:root:Result : <tuple @ 0x2ac5a6d35c0> (('increase', 'i'))
+INFO:root:Result : <tuple @ 0x1c2bf873500> (('increase', 'i'))
+INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x1c2bf873500>] and goto state 198
+INFO:root:Result : <tuple @ 0x1c2bf873500> (('increase', 'i'))
 INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 225
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
-INFO:root:Result : <int @ 0x2ac59a76930> (1)
+INFO:root:Result : <int @ 0x1c2bef66930> (1)
 INFO:root:Action : Reduce rule [oper -> %] with ['%'] and goto state 45
-INFO:root:Result : <str @ 0x2ac59b9e1f0> ('%')
+INFO:root:Result : <str @ 0x1c2bf16e230> ('%')
 INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 70
-INFO:root:Result : <int @ 0x2ac59a76950> (2)
+INFO:root:Result : <int @ 0x1c2bef66950> (2)
 INFO:root:Action : Reduce rule [expression -> expression oper expression] with [1,'%',2] and goto state 68
-INFO:root:Result : <int @ 0x2ac59a76930> (1)
+INFO:root:Result : <int @ 0x1c2bef66930> (1)
 INFO:root:Action : Reduce rule [rel_op -> EQ] with ['=='] and goto state 46
-INFO:root:Result : <str @ 0x2ac5a6a2270> ('==')
+INFO:root:Result : <str @ 0x1c2bf842130> ('==')
 INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 71
-INFO:root:Result : <int @ 0x2ac59a76910> (0)
+INFO:root:Result : <int @ 0x1c2bef66910> (0)
 INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'==',0] and goto state 119
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2ac5a692930>] and goto state 164
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x1c2bf832770>] and goto state 164
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"even"'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a692930> ('even')
+INFO:root:Result : <str @ 0x1c2bf832770> ('even')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['even'] and goto state 175
-INFO:root:Result : <str @ 0x2ac5a692930> ('even')
+INFO:root:Result : <str @ 0x1c2bf832770> ('even')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','even',(),')',<str @ 0x2ac5a6a0df0>] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a6d3240> (('print', 'even'))
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','even',(),')',<str @ 0x1c2bf841df0>] and goto state 86
+INFO:root:Result : <tuple @ 0x1c2bf873180> (('print', 'even'))
 INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
-INFO:root:Result : <tuple @ 0x2ac59b7b100> (('continue',))
+INFO:root:Result : <tuple @ 0x1c2bf14b100> (('continue',))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac5a5fa820> ((('continue',),))
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x2ac5a6d3240>,<tuple @ 0x2ac5a5fa820>] and goto state 176
-INFO:root:Result : <tuple @ 0x2ac5a6d1bc0> ((('print', 'even'), ('continue',)))
+INFO:root:Result : <tuple @ 0x1c2bf79a970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1c2bf873180>,<tuple @ 0x1c2bf79a970>] and goto state 176
+INFO:root:Result : <tuple @ 0x1c2bf871b00> ((('print', 'even'), ('continue',)))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 190
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2ac5a6a0af0>] and goto state 238
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x1c2bf841c30>] and goto state 238
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"odd"'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a6a0af0> ('odd')
+INFO:root:Result : <str @ 0x1c2bf841c30> ('odd')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['odd'] and goto state 175
-INFO:root:Result : <str @ 0x2ac5a6a0af0> ('odd')
+INFO:root:Result : <str @ 0x1c2bf841c30> ('odd')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','odd',(),')',<str @ 0x2ac5a6a0db0>] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a6d18c0> (('print', 'odd'))
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','odd',(),')',<str @ 0x1c2bf841db0>] and goto state 86
+INFO:root:Result : <tuple @ 0x1c2bf871800> (('print', 'odd'))
 INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
-INFO:root:Result : <tuple @ 0x2ac59b7b100> (('continue',))
+INFO:root:Result : <tuple @ 0x1c2bf14b100> (('continue',))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac5a5fa820> ((('continue',),))
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x2ac5a6d18c0>,<tuple @ 0x2ac5a5fa820>] and goto state 244
-INFO:root:Result : <tuple @ 0x2ac5a6d1800> ((('print', 'odd'), ('continue',)))
+INFO:root:Result : <tuple @ 0x1c2bf79a970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1c2bf871800>,<tuple @ 0x1c2bf79a970>] and goto state 244
+INFO:root:Result : <tuple @ 0x1c2bf871740> ((('print', 'odd'), ('continue',)))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 249
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [else_statement -> KELSE { NL statement NL }] with ['else','{',None,<tuple @ 0x2ac5a6d1800>,None,'}'] and goto state 215
-INFO:root:Result : <tuple @ 0x2ac5a6d17c0> (('else', (('print', 'odd'), ('continue', ...)
-INFO:root:Action : Reduce rule [if_statement -> KIF condition { NL statement NL } else_statement NLD] with ['if',False,'{',None,<tuple @ 0x2ac5a6d1bc0>,None,'}',<tuple @ 0x2ac5a6d17c0>,'\n    '] and goto state 87
-INFO:root:Result : <tuple @ 0x2ac5a68b0c0> ((('if', False, (('print', 'even'), ('con ...)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [else_statement -> KELSE { NL statement NL }] with ['else','{',None,<tuple @ 0x1c2bf871740>,None,'}'] and goto state 215
+INFO:root:Result : <tuple @ 0x1c2bf871700> (('else', (('print', 'odd'), ('continue', ...)
+INFO:root:Action : Reduce rule [if_statement -> KIF condition { NL statement NL } else_statement NLD] with ['if',False,'{',None,<tuple @ 0x1c2bf871b00>,None,'}',<tuple @ 0x1c2bf871700>,'\n    '] and goto state 87
+INFO:root:Result : <tuple @ 0x1c2bf82b080> ((('if', False, (('print', 'even'), ('con ...)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 112
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [statement -> if_statement statement] with [<tuple @ 0x2ac5a68b0c0>,()] and goto state 236
-INFO:root:Result : <tuple @ 0x2ac5a5fa820> (((('if', False, (('print', 'even'), ('co ...)
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [statement -> if_statement statement] with [<tuple @ 0x1c2bf82b080>,()] and goto state 236
+INFO:root:Result : <tuple @ 0x1c2bf79a970> (((('if', False, (('print', 'even'), ('co ...)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 242
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [for_statement -> FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL statement NL } NLD] with [None,<tuple @ 0x2ac5a5c0590>,';',True,';',<tuple @ 0x2ac5a6d35c0>,'{',None,<tuple @ 0x2ac5a5fa820>,None,'}',<str @ 0x2ac5a6a2270>] and goto state 89
-INFO:root:Result : <tuple @ 0x2ac5a68bc40> (('for_default', (('def', 'i', <class 'in ...)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [for_statement -> FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL statement NL } NLD] with [None,<tuple @ 0x1c2bf7605e0>,';',True,';',<tuple @ 0x1c2bf873500>,'{',None,<tuple @ 0x1c2bf79a970>,None,'}',<str @ 0x1c2bf842130>] and goto state 89
+INFO:root:Result : <tuple @ 0x1c2bf82bc00> (('for_default', (('def', 'i', <class 'in ...)
 INFO:root:Action : Reduce rule [SWITCH -> KSWITCH] with ['switch'] and goto state 96
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> ID] with ['x'] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 121
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 169
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 196
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [3,()] and goto state 195
-INFO:root:Result : <tuple @ 0x2ac5a5fa820> ((3,))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2ac5a692930>] and goto state 222
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <tuple @ 0x1c2bf79a970> ((3,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x1c2bf832770>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a692930> ('x =')
+INFO:root:Result : <str @ 0x1c2bf832770> ('x =')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
-INFO:root:Result : <str @ 0x2ac5a692930> ('x =')
+INFO:root:Result : <str @ 0x1c2bf832770> ('x =')
 INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 202
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
+INFO:root:Result : <int @ 0x1c2bef66970> (3)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',3,()] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac5a581910> ((3,))
+INFO:root:Result : <tuple @ 0x1c2bf721a60> ((3,))
 INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(3,),')','\n        '] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a68b0c0> (('print', 'x =', 3))
+INFO:root:Result : <tuple @ 0x1c2bf82b080> (('print', 'x =', 3))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x2ac5a68b0c0>,()] and goto state 231
-INFO:root:Result : <tuple @ 0x2ac5a581910> ((('print', 'x =', 3),))
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1c2bf82b080>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x1c2bf721a60> ((('print', 'x =', 3),))
 INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 196
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [4,()] and goto state 195
-INFO:root:Result : <tuple @ 0x2ac5a682100> ((4,))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2ac5a6a25b0>] and goto state 222
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <tuple @ 0x1c2bf825250> ((4,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x1c2bf842a70>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a6a25b0> ('x =')
+INFO:root:Result : <str @ 0x1c2bf842a70> ('x =')
 INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
-INFO:root:Result : <str @ 0x2ac5a6a25b0> ('x =')
+INFO:root:Result : <str @ 0x1c2bf842a70> ('x =')
 INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 202
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
+INFO:root:Result : <int @ 0x1c2bef66990> (4)
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',4,()] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac5a611820> ((4,))
+INFO:root:Result : <tuple @ 0x1c2bf7c5970> ((4,))
 INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(4,),')','\n        '] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a68bb40> (('print', 'x =', 4))
+INFO:root:Result : <tuple @ 0x1c2bf82bb40> (('print', 'x =', 4))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x2ac5a68bb40>,()] and goto state 231
-INFO:root:Result : <tuple @ 0x2ac5a611820> ((('print', 'x =', 4),))
-INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x2ac5a6a0df0>] and goto state 211
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1c2bf82bb40>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x1c2bf7c5970> ((('print', 'x =', 4),))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x1c2bf841df0>] and goto state 211
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [break_statement -> KBREAK NLD] with ['break','\n    '] and goto state 91
-INFO:root:Result : <tuple @ 0x2ac59b71130> (('break',))
+INFO:root:Result : <tuple @ 0x1c2bf141130> (('break',))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 116
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [statement -> break_statement statement] with [('break',),()] and goto state 224
-INFO:root:Result : <tuple @ 0x2ac5a611ca0> ((('break',),))
+INFO:root:Result : <tuple @ 0x1c2bf7c5a60> ((('break',),))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 235
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [case_var_without_default_statement -> empty] with [None] and goto state 233
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x1c2bef64040> (())
 INFO:root:Action : Reduce rule [case_var_statement -> KDEFAULT : NL statement case_var_without_default_statement] with ['default',':',None,(('break',),),()] and goto state 240
-INFO:root:Result : <tuple @ 0x2ac5a701130> ((('default', (('break',),)),))
-INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(4,),':',None,<tuple @ 0x2ac5a611820>,<tuple @ 0x2ac5a701130>] and goto state 240
-INFO:root:Result : <tuple @ 0x2ac5a6d3240> ((('case', (4,), (('print', 'x =', 4),)), ...)
-INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(3,),':',None,<tuple @ 0x2ac5a581910>,<tuple @ 0x2ac5a6d3240>] and goto state 180
-INFO:root:Result : <tuple @ 0x2ac5a69f600> ((('case', (3,), (('print', 'x =', 3),)), ...)
-INFO:root:Action : Reduce rule [switch_statement -> SWITCH expr_cond { NL case_var_statement } NLD] with [None,4,'{',None,<tuple @ 0x2ac5a69f600>,'}','\n    \n    '] and goto state 88
-INFO:root:Result : <tuple @ 0x2ac5a69fa00> (('switch_default', 4, (('case', (3,), (( ...)
-INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 64
-INFO:root:Result : <int @ 0x2ac59a76930> (1)
-INFO:root:Action : Reduce rule [rel_op -> GE] with ['>'] and goto state 46
-INFO:root:Result : <str @ 0x2ac5a151f70> ('>')
-INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 71
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
-INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'>',3] and goto state 65
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 36
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 79
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
-INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
-INFO:root:Result : <str @ 0x2ac5a151f30> ('<')
-INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 71
-INFO:root:Result : <int @ 0x2ac59a76950> (2)
-INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [4,'<',2] and goto state 65
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 74
-INFO:root:Result : <bool @ 0x7ffed375d888> (False)
-INFO:root:Action : Reduce rule [condition -> condition EQ condition] with [False,'==',False] and goto state 36
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [expr_cond -> condition] with [True] and goto state 160
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [reassign_statement -> ID = expr_cond] with ['z','=',True] and goto state 102
-INFO:root:Result : <tuple @ 0x2ac5a5c0540> (('reassign', 'z', <class 'bool'>, True))
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x2ac5a5c0540>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c0540> (('reassign', 'z', <class 'bool'>, True))
-INFO:root:Action : Reduce rule [expression -> ID] with ['z'] and goto state 35
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [True] and goto state 175
-INFO:root:Result : <bool @ 0x7ffed375d868> (True)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',True,(),')','\n\n    '] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a6d3240> (('print', True))
+INFO:root:Result : <tuple @ 0x1c2bf8a3280> ((('default', (('break',),)),))
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(4,),':',None,<tuple @ 0x1c2bf7c5970>,<tuple @ 0x1c2bf8a3280>] and goto state 240
+INFO:root:Result : <tuple @ 0x1c2bf873180> ((('case', (4,), (('print', 'x =', 4),)), ...)
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(3,),':',None,<tuple @ 0x1c2bf721a60>,<tuple @ 0x1c2bf873180>] and goto state 180
+INFO:root:Result : <tuple @ 0x1c2bf83d080> ((('case', (3,), (('print', 'x =', 3),)), ...)
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond { NL case_var_statement } . LexToken(ID,'z',37,463)
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond { NL case_var_statement } . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond { NL case_var_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond { NL . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond { . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH expr_cond . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement SWITCH . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement for_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL assign_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { NL . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) { . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( ) . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN ( . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC KMAIN . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement KFUNC . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD global_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement NLD . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement import_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD global_statement . error
+ERROR:root:Error  : KPACKAGE KMAIN NLD . error
+ERROR:root:Error  : KPACKAGE KMAIN . error
+ERROR:root:Error  : KPACKAGE . error
+ERROR:root:Error  : . error
+ERROR:root:Error  : . LexToken(=,'=',37,465)
+ERROR:root:Error  : . LexToken((,'(',37,467)
+ERROR:root:Error  : . LexToken(INT,1,37,468)
+ERROR:root:Error  : . LexToken(GE,'>',37,470)
+ERROR:root:Error  : . LexToken(INT,3,37,472)
+ERROR:root:Error  : . LexToken(),')',37,473)
+ERROR:root:Error  : . LexToken(EQ,'==',37,475)
+ERROR:root:Error  : . LexToken((,'(',37,478)
+ERROR:root:Error  : . LexToken(INT,4,37,479)
+ERROR:root:Error  : . LexToken(LT,'<',37,481)
+ERROR:root:Error  : . LexToken(INT,2,37,483)
+ERROR:root:Error  : . LexToken(),')',37,484)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',37,485)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',38,490)
+ERROR:root:Error  : . LexToken(.,'.',38,493)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',38,494)
+ERROR:root:Error  : . LexToken((,'(',38,501)
+ERROR:root:Error  : . LexToken(ID,'z',38,502)
+ERROR:root:Error  : . LexToken(),')',38,503)
+ERROR:root:Error  : . LexToken(NLD,'\n\n    ',38,504)
+ERROR:root:Error  : . LexToken(ID,'y',40,510)
+ERROR:root:Error  : . LexToken(PE,'+=',40,512)
+ERROR:root:Error  : . LexToken(STRING,'"456"',40,515)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',40,520)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',41,525)
+ERROR:root:Error  : . LexToken(.,'.',41,528)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',41,529)
+ERROR:root:Error  : . LexToken((,'(',41,536)
+ERROR:root:Error  : . LexToken(ID,'y',41,537)
+ERROR:root:Error  : . LexToken(),')',41,538)
+ERROR:root:Error  : . LexToken(NLD,'\n\n    ',41,543)
+ERROR:root:Error  : . LexToken(ID,'a',43,549)
+ERROR:root:Error  : . LexToken(DEF,':=',43,551)
+ERROR:root:Error  : . LexToken(INT,10,43,554)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',43,556)
+ERROR:root:Error  : . LexToken(ID,'a',44,561)
+ERROR:root:Error  : . LexToken(TE,'*=',44,563)
+ERROR:root:Error  : . LexToken(INT,4,44,566)
+ERROR:root:Error  : . LexToken(*,'*',44,568)
+ERROR:root:Error  : . LexToken((,'(',44,570)
+ERROR:root:Error  : . LexToken(INT,2,44,571)
+ERROR:root:Error  : . LexToken(+,'+',44,573)
+ERROR:root:Error  : . LexToken(-,'-',44,575)
+ERROR:root:Error  : . LexToken(INT,3,44,576)
+ERROR:root:Error  : . LexToken(),')',44,577)
+ERROR:root:Error  : . LexToken(NLD,'\n    ',44,578)
+ERROR:root:Error  : . LexToken(KFMT,'fmt',45,583)
+ERROR:root:Error  : . LexToken(.,'.',45,586)
+ERROR:root:Error  : . LexToken(KPRINT,'Println',45,587)
+ERROR:root:Error  : . LexToken((,'(',45,594)
+ERROR:root:Error  : . LexToken(ID,'a',45,595)
+ERROR:root:Error  : . LexToken(),')',45,596)
+ERROR:root:Error  : . LexToken(NLD,'\n',45,597)
+ERROR:root:Error  : . LexToken(},'}',46,598)
+ERROR:root:Error  : . $end
+INFO:root:PLY: PARSE DEBUG START
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 5
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [import_statement -> KIMPORT STRING] with ['import','"fmt"'] and goto state 12
+INFO:root:Result : <tuple @ 0x15564098880> (('import', '"fmt"'))
+INFO:root:Action : Reduce rule [type -> KINT] with ['int'] and goto state 21
+INFO:root:Result : <str @ 0x1556404a030> ('int')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 34
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=',3] and goto state 29
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [global_var_assign_statement -> KVAR ID type assign_expr] with ['var','x','int',3] and goto state 8
+INFO:root:Result : <tuple @ 0x15563f74180> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [global_assign_statement -> global_var_assign_statement] with [<tuple @ 0x15563f74180>] and goto state 6
+INFO:root:Result : <tuple @ 0x15563f74180> (('global_var_assign', 'x', <class 'int'> ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 7
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [global_statement -> empty] with [None] and goto state 20
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [global_statement -> global_assign_statement NLD global_statement] with [<tuple @ 0x15563f74180>,'\n\n',()] and goto state 27
+INFO:root:Result : <tuple @ 0x15563fc1bb0> ((('global_var_assign', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n\n    '] and goto state 82
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
-INFO:root:Result : <str @ 0x2ac5a6a0e30> ('+=')
-INFO:root:Action : Reduce rule [expression -> STRING] with ['"456"'] and goto state 161
-INFO:root:Result : <str @ 0x2ac5a6a0af0> ('456')
-INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['y','+=','456'] and goto state 102
-INFO:root:Result : <tuple @ 0x2ac5a5c04f0> (('reassign_op', 'y', <class 'str'>, '123 ...)
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x2ac5a5c04f0>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c04f0> (('reassign_op', 'y', <class 'str'>, '123 ...)
-INFO:root:Action : Reduce rule [expression -> ID] with ['y'] and goto state 35
-INFO:root:Result : <str @ 0x2ac5a6a07f0> ('123456')
-INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123456'] and goto state 175
-INFO:root:Result : <str @ 0x2ac5a6a07f0> ('123456')
+INFO:root:Result : <str @ 0x15564052d70> ('+=')
+INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 161
+INFO:root:Result : <int @ 0x15563406930> (1)
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['x','+=',1] and goto state 102
+INFO:root:Result : <tuple @ 0x15563f80a40> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x15563f80a40>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f80a40> (('reassign_op_global', 'x', <class 'int' ...)
+INFO:root:Action : Reduce rule [type -> KSTRING] with ['string'] and goto state 158
+INFO:root:Result : <str @ 0x15564052d70> ('string')
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"123"'] and goto state 35
+INFO:root:Result : <str @ 0x155640628b0> ('123')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123'] and goto state 34
+INFO:root:Result : <str @ 0x155640628b0> ('123')
+INFO:root:Action : Reduce rule [assign_expr -> = expr_cond] with ['=','123'] and goto state 173
+INFO:root:Result : <str @ 0x155640628b0> ('123')
+INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','y','string','123'] and goto state 98
+INFO:root:Result : <tuple @ 0x15563f806d0> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x15563f806d0>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f806d0> (('var_assign', 'y', <class 'str'>, '123' ...)
+INFO:root:Action : Reduce rule [type -> KBOOL] with ['bool'] and goto state 158
+INFO:root:Result : <str @ 0x15564062770> ('bool')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 31
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [assign_expr -> empty] with [None] and goto state 173
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [var_assign_statement -> KVAR ID type assign_expr] with ['var','z','bool',None] and goto state 98
+INFO:root:Result : <tuple @ 0x15563f80680> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [assign_statement -> var_assign_statement NLD] with [<tuple @ 0x15563f80680>,'\n\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f80680> (('var_assign', 'z', <class 'bool'>, None ...)
+INFO:root:Action : Reduce rule [FOR -> KFOR] with ['for'] and goto state 97
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 35
+INFO:root:Result : <int @ 0x15563406910> (0)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [0] and goto state 159
+INFO:root:Result : <int @ 0x15563406910> (0)
+INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['i',':=',0] and goto state 126
+INFO:root:Result : <tuple @ 0x15563f80630> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [single_line_statement_1 -> def_statement] with [<tuple @ 0x15563f80630>] and goto state 122
+INFO:root:Result : <tuple @ 0x15563f80630> (('def', 'i', <class 'int'>, 0))
+INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
+INFO:root:Result : <int @ 0x15563406910> (0)
+INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
+INFO:root:Result : <str @ 0x15563c130f0> ('<')
+INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 71
+INFO:root:Result : <int @ 0x15563406a50> (10)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [0,'<',10] and goto state 170
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [increase_statement -> ID PP] with ['i','++'] and goto state 128
+INFO:root:Result : <tuple @ 0x15564093600> (('increase', 'i'))
+INFO:root:Action : Reduce rule [single_line_statement_2 -> increase_statement] with [<tuple @ 0x15564093600>] and goto state 198
+INFO:root:Result : <tuple @ 0x15564093600> (('increase', 'i'))
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 225
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> ID] with ['i'] and goto state 68
+INFO:root:Result : <int @ 0x15563406930> (1)
+INFO:root:Action : Reduce rule [oper -> %] with ['%'] and goto state 45
+INFO:root:Result : <str @ 0x1556352e2b0> ('%')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 70
+INFO:root:Result : <int @ 0x15563406950> (2)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [1,'%',2] and goto state 68
+INFO:root:Result : <int @ 0x15563406930> (1)
+INFO:root:Action : Reduce rule [rel_op -> EQ] with ['=='] and goto state 46
+INFO:root:Result : <str @ 0x15564052d70> ('==')
+INFO:root:Action : Reduce rule [expression -> INT] with [0] and goto state 71
+INFO:root:Result : <int @ 0x15563406910> (0)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'==',0] and goto state 119
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x15564060df0>] and goto state 164
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"even"'] and goto state 35
+INFO:root:Result : <str @ 0x15564060df0> ('even')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['even'] and goto state 175
+INFO:root:Result : <str @ 0x15564060df0> ('even')
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','123456',(),')','\n\n    '] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a6d1800> (('print', '123456'))
-INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 35
-INFO:root:Result : <int @ 0x2ac59a76a50> (10)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [10] and goto state 159
-INFO:root:Result : <int @ 0x2ac59a76a50> (10)
-INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['a',':=',10] and goto state 100
-INFO:root:Result : <tuple @ 0x2ac5a5c04a0> (('def', 'a', <class 'int'>, 10))
-INFO:root:Action : Reduce rule [assign_statement -> def_statement NLD] with [<tuple @ 0x2ac5a5c04a0>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c04a0> (('def', 'a', <class 'int'>, 10))
-INFO:root:Action : Reduce rule [assign_oper -> TE] with ['*='] and goto state 144
-INFO:root:Result : <str @ 0x2ac5a6a2270> ('*=')
-INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 161
-INFO:root:Result : <int @ 0x2ac59a76990> (4)
-INFO:root:Action : Reduce rule [oper -> *] with ['*'] and goto state 45
-INFO:root:Result : <str @ 0x2ac59ad84b0> ('*')
-INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 76
-INFO:root:Result : <int @ 0x2ac59a76950> (2)
-INFO:root:Action : Reduce rule [oper -> +] with ['+'] and goto state 45
-INFO:root:Result : <str @ 0x2ac59becfb0> ('+')
-INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 62
-INFO:root:Result : <int @ 0x2ac59a76970> (3)
-INFO:root:Action : Reduce rule [expression -> - expression] with ['-',3] and goto state 70
-INFO:root:Result : <int @ 0x2ac59a768b0> (-3)
-INFO:root:Action : Reduce rule [expression -> expression oper expression] with [2,'+',-3] and goto state 76
-INFO:root:Result : <int @ 0x2ac59a768f0> (-1)
-INFO:root:Action : Reduce rule [expression -> ( expression )] with ['(',-1,')'] and goto state 70
-INFO:root:Result : <int @ 0x2ac59a768f0> (-1)
-INFO:root:Action : Reduce rule [expression -> expression oper expression] with [4,'*',-1] and goto state 161
-INFO:root:Result : <int @ 0x2ac59a76890> (-4)
-INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['a','*=',-4] and goto state 102
-INFO:root:Result : <tuple @ 0x2ac5a5c0450> (('reassign_op', 'a', <class 'int'>, -40))
-INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x2ac5a5c0450>,'\n    '] and goto state 90
-INFO:root:Result : <tuple @ 0x2ac5a5c0450> (('reassign_op', 'a', <class 'int'>, -40))
-INFO:root:Action : Reduce rule [expression -> ID] with ['a'] and goto state 35
-INFO:root:Result : <int @ 0x2ac5a6848d0> (-40)
-INFO:root:Action : Reduce rule [expr_cond -> expression] with [-40] and goto state 175
-INFO:root:Result : <int @ 0x2ac5a6848d0> (-40)
-INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
-INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
-INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',-40,(),')','\n'] and goto state 86
-INFO:root:Result : <tuple @ 0x2ac5a6d18c0> (('print', -40))
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','even',(),')',<str @ 0x15564060d30>] and goto state 86
+INFO:root:Result : <tuple @ 0x15564093280> (('print', 'even'))
+INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
+INFO:root:Result : <tuple @ 0x1556350b100> (('continue',))
 INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
-INFO:root:Result : <NoneType @ 0x7ffed3769cd8> (None)
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
+INFO:root:Result : <tuple @ 0x15563fba970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x15564093280>,<tuple @ 0x15563fba970>] and goto state 176
+INFO:root:Result : <tuple @ 0x15564091c00> ((('print', 'even'), ('continue',)))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 190
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x15564060930>] and goto state 238
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"odd"'] and goto state 35
+INFO:root:Result : <str @ 0x15564060930> ('odd')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['odd'] and goto state 175
+INFO:root:Result : <str @ 0x15564060930> ('odd')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','odd',(),')',<str @ 0x15564060cf0>] and goto state 86
+INFO:root:Result : <tuple @ 0x15564091900> (('print', 'odd'))
+INFO:root:Action : Reduce rule [continue_statement -> KCONTINUE NLD] with ['continue','\n        '] and goto state 92
+INFO:root:Result : <tuple @ 0x1556350b100> (('continue',))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 117
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> continue_statement statement] with [('continue',),()] and goto state 111
+INFO:root:Result : <tuple @ 0x15563fba970> ((('continue',),))
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x15564091900>,<tuple @ 0x15563fba970>] and goto state 244
+INFO:root:Result : <tuple @ 0x15564091840> ((('print', 'odd'), ('continue',)))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 249
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [else_statement -> KELSE { NL statement NL }] with ['else','{',None,<tuple @ 0x15564091840>,None,'}'] and goto state 215
+INFO:root:Result : <tuple @ 0x15564091800> (('else', (('print', 'odd'), ('continue', ...)
+INFO:root:Action : Reduce rule [if_statement -> KIF condition { NL statement NL } else_statement NLD] with ['if',False,'{',None,<tuple @ 0x15564091c00>,None,'}',<tuple @ 0x15564091800>,'\n    '] and goto state 87
+INFO:root:Result : <tuple @ 0x1556404b0c0> ((('if', False, (('print', 'even'), ('con ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 112
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> if_statement statement] with [<tuple @ 0x1556404b0c0>,()] and goto state 236
+INFO:root:Result : <tuple @ 0x15563fba970> (((('if', False, (('print', 'even'), ('co ...)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 84
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [NL -> empty] with [None] and goto state 242
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [for_statement -> FOR single_line_statement_1 ; condition ; single_line_statement_2 { NL statement NL } NLD] with [None,<tuple @ 0x15563f80630>,';',True,';',<tuple @ 0x15564093600>,'{',None,<tuple @ 0x15563fba970>,None,'}',<str @ 0x15564052d70>] and goto state 89
+INFO:root:Result : <tuple @ 0x1556404bc40> (('for_default', (('def', 'i', <class 'in ...)
+INFO:root:Action : Reduce rule [SWITCH -> KSWITCH] with ['switch'] and goto state 96
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> ID] with ['x'] and goto state 35
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 121
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [NL -> NLD] with ['\n        '] and goto state 169
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 196
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [3,()] and goto state 195
+INFO:root:Result : <tuple @ 0x15563fba970> ((3,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x15564052d70>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
+INFO:root:Result : <str @ 0x15564052d70> ('x =')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
+INFO:root:Result : <str @ 0x15564052d70> ('x =')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 35
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [3] and goto state 202
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',3,()] and goto state 187
+INFO:root:Result : <tuple @ 0x15563f41a60> ((3,))
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(3,),')','\n        '] and goto state 86
+INFO:root:Result : <tuple @ 0x1556404b0c0> (('print', 'x =', 3))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
 INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac59a74040> (())
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1556404b0c0>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x15563f41a60> ((('print', 'x =', 3),))
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 196
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 210
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [comma_var -> empty] with [None] and goto state 208
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [var_statement -> expr_cond comma_var] with [4,()] and goto state 195
+INFO:root:Result : <tuple @ 0x15564045250> ((4,))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x15564060930>] and goto state 222
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"x ="'] and goto state 35
+INFO:root:Result : <str @ 0x15564060930> ('x =')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['x ='] and goto state 175
+INFO:root:Result : <str @ 0x15564060930> ('x =')
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 35
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [4] and goto state 202
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 214
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [args -> , expr_cond args] with [',',4,()] and goto state 187
+INFO:root:Result : <tuple @ 0x15563fe7970> ((4,))
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','x =',(4,),')','\n        '] and goto state 86
+INFO:root:Result : <tuple @ 0x1556404bb00> (('print', 'x =', 4))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x1556404bb00>,()] and goto state 231
+INFO:root:Result : <tuple @ 0x15563fe7970> ((('print', 'x =', 4),))
+INFO:root:Action : Reduce rule [NL -> NLD] with [<str @ 0x15564060d30>] and goto state 211
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [break_statement -> KBREAK NLD] with ['break','\n    '] and goto state 91
+INFO:root:Result : <tuple @ 0x15563501130> (('break',))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 116
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [statement -> break_statement statement] with [('break',),()] and goto state 224
+INFO:root:Result : <tuple @ 0x15563fe7a60> ((('break',),))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 235
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [case_var_without_default_statement -> empty] with [None] and goto state 233
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [case_var_statement -> KDEFAULT : NL statement case_var_without_default_statement] with ['default',':',None,(('break',),),()] and goto state 240
+INFO:root:Result : <tuple @ 0x155640c3280> ((('default', (('break',),)),))
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(4,),':',None,<tuple @ 0x15563fe7970>,<tuple @ 0x155640c3280>] and goto state 240
+INFO:root:Result : <tuple @ 0x15564093280> ((('case', (4,), (('print', 'x =', 4),)), ...)
+INFO:root:Action : Reduce rule [case_var_statement -> KCASE var_statement : NL statement case_var_statement] with ['case',(3,),':',None,<tuple @ 0x15563f41a60>,<tuple @ 0x15564093280>] and goto state 180
+INFO:root:Result : <tuple @ 0x1556405fcc0> ((('case', (3,), (('print', 'x =', 3),)), ...)
+INFO:root:Action : Reduce rule [switch_statement -> SWITCH expr_cond { NL case_var_statement } NLD] with [None,4,'{',None,<tuple @ 0x1556405fcc0>,'}','\n    '] and goto state 88
+INFO:root:Result : <tuple @ 0x1556405fd00> (('switch_default', 4, (('case', (3,), (( ...)
+INFO:root:Action : Reduce rule [expression -> INT] with [1] and goto state 64
+INFO:root:Result : <int @ 0x15563406930> (1)
+INFO:root:Action : Reduce rule [rel_op -> GE] with ['>'] and goto state 46
+INFO:root:Result : <str @ 0x15563c13130> ('>')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 71
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [1,'>',3] and goto state 65
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 36
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 79
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [rel_op -> LT] with ['<'] and goto state 46
+INFO:root:Result : <str @ 0x15563c130f0> ('<')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 71
+INFO:root:Result : <int @ 0x15563406950> (2)
+INFO:root:Action : Reduce rule [condition -> expression rel_op expression] with [4,'<',2] and goto state 65
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> ( condition )] with ['(',False,')'] and goto state 74
+INFO:root:Result : <bool @ 0x7ffe9f5ed888> (False)
+INFO:root:Action : Reduce rule [condition -> condition EQ condition] with [False,'==',False] and goto state 36
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [expr_cond -> condition] with [True] and goto state 160
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [reassign_statement -> ID = expr_cond] with ['z','=',True] and goto state 102
+INFO:root:Result : <tuple @ 0x15563f805e0> (('reassign', 'z', <class 'bool'>, True))
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x15563f805e0>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f805e0> (('reassign', 'z', <class 'bool'>, True))
+INFO:root:Action : Reduce rule [expression -> ID] with ['z'] and goto state 35
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [True] and goto state 175
+INFO:root:Result : <bool @ 0x7ffe9f5ed868> (True)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',True,(),')','\n\n    '] and goto state 86
+INFO:root:Result : <tuple @ 0x15564093280> (('print', True))
+INFO:root:Action : Reduce rule [assign_oper -> PE] with ['+='] and goto state 144
+INFO:root:Result : <str @ 0x15564060fb0> ('+=')
+INFO:root:Action : Reduce rule [expression -> STRING] with ['"456"'] and goto state 161
+INFO:root:Result : <str @ 0x155640601f0> ('456')
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['y','+=','456'] and goto state 102
+INFO:root:Result : <tuple @ 0x15563f80590> (('reassign_op', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x15563f80590>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f80590> (('reassign_op', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [expression -> ID] with ['y'] and goto state 35
+INFO:root:Result : <str @ 0x155640607b0> ('123456')
+INFO:root:Action : Reduce rule [expr_cond -> expression] with ['123456'] and goto state 175
+INFO:root:Result : <str @ 0x155640607b0> ('123456')
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(','123456',(),')','\n\n    '] and goto state 86
+INFO:root:Result : <tuple @ 0x15564091840> (('print', '123456'))
+INFO:root:Action : Reduce rule [expression -> INT] with [10] and goto state 35
+INFO:root:Result : <int @ 0x15563406a50> (10)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [10] and goto state 159
+INFO:root:Result : <int @ 0x15563406a50> (10)
+INFO:root:Action : Reduce rule [def_statement -> ID DEF expr_cond] with ['a',':=',10] and goto state 100
+INFO:root:Result : <tuple @ 0x15563f80540> (('def', 'a', <class 'int'>, 10))
+INFO:root:Action : Reduce rule [assign_statement -> def_statement NLD] with [<tuple @ 0x15563f80540>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f80540> (('def', 'a', <class 'int'>, 10))
+INFO:root:Action : Reduce rule [assign_oper -> TE] with ['*='] and goto state 144
+INFO:root:Result : <str @ 0x155640626b0> ('*=')
+INFO:root:Action : Reduce rule [expression -> INT] with [4] and goto state 161
+INFO:root:Result : <int @ 0x15563406990> (4)
+INFO:root:Action : Reduce rule [oper -> *] with ['*'] and goto state 45
+INFO:root:Result : <str @ 0x155634684b0> ('*')
+INFO:root:Action : Reduce rule [expression -> INT] with [2] and goto state 76
+INFO:root:Result : <int @ 0x15563406950> (2)
+INFO:root:Action : Reduce rule [oper -> +] with ['+'] and goto state 45
+INFO:root:Result : <str @ 0x15563b70130> ('+')
+INFO:root:Action : Reduce rule [expression -> INT] with [3] and goto state 62
+INFO:root:Result : <int @ 0x15563406970> (3)
+INFO:root:Action : Reduce rule [expression -> - expression] with ['-',3] and goto state 70
+INFO:root:Result : <int @ 0x155634068b0> (-3)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [2,'+',-3] and goto state 76
+INFO:root:Result : <int @ 0x155634068f0> (-1)
+INFO:root:Action : Reduce rule [expression -> ( expression )] with ['(',-1,')'] and goto state 70
+INFO:root:Result : <int @ 0x155634068f0> (-1)
+INFO:root:Action : Reduce rule [expression -> expression oper expression] with [4,'*',-1] and goto state 161
+INFO:root:Result : <int @ 0x15563406890> (-4)
+INFO:root:Action : Reduce rule [reassign_statement -> ID assign_oper expression] with ['a','*=',-4] and goto state 102
+INFO:root:Result : <tuple @ 0x15563f804f0> (('reassign_op', 'a', <class 'int'>, -40))
+INFO:root:Action : Reduce rule [assign_statement -> reassign_statement NLD] with [<tuple @ 0x15563f804f0>,'\n    '] and goto state 90
+INFO:root:Result : <tuple @ 0x15563f804f0> (('reassign_op', 'a', <class 'int'>, -40))
+INFO:root:Action : Reduce rule [expression -> ID] with ['a'] and goto state 35
+INFO:root:Result : <int @ 0x155640448d0> (-40)
+INFO:root:Action : Reduce rule [expr_cond -> expression] with [-40] and goto state 175
+INFO:root:Result : <int @ 0x155640448d0> (-40)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 189
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [args -> empty] with [None] and goto state 187
+INFO:root:Result : <tuple @ 0x15563404040> (())
+INFO:root:Action : Reduce rule [print_statement -> KFMT . KPRINT ( expr_cond args ) NLD] with ['fmt','.','Println','(',-40,(),')','\n'] and goto state 86
+INFO:root:Result : <tuple @ 0x15564091900> (('print', -40))
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 93
+INFO:root:Result : <NoneType @ 0x7ffe9f5f9cd8> (None)
+INFO:root:Action : Reduce rule [statement -> empty] with [None] and goto state 111
+INFO:root:Result : <tuple @ 0x15563404040> (())
 INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', -40),()] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a701130> ((('print', -40),))
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c0450>,<tuple @ 0x2ac5a701130>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a6d17c0> ((('reassign_op', 'a', <class 'int'>, -40 ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c04a0>,<tuple @ 0x2ac5a6d17c0>] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac5a69f4c0> ((('def', 'a', <class 'int'>, 10), ('reas ...)
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x2ac5a6d1800>,<tuple @ 0x2ac5a69f4c0>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a5c0400> ((('print', '123456'), ('def', 'a', <clas ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c04f0>,<tuple @ 0x2ac5a5c0400>] and goto state 111
-INFO:root:Result : <tuple @ 0x2ac5a603db0> ((('reassign_op', 'y', <class 'str'>, '12 ...)
-INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', True),<tuple @ 0x2ac5a603db0>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a5d1040> ((('print', True), ('reassign_op', 'y', < ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c0540>,<tuple @ 0x2ac5a5d1040>] and goto state 113
-INFO:root:Result : <tuple @ 0x2ac5a5d1ee0> ((('reassign', 'z', <class 'bool'>, True) ...)
-INFO:root:Action : Reduce rule [statement -> switch_statement statement] with [<tuple @ 0x2ac5a69fa00>,<tuple @ 0x2ac5a5d1ee0>] and goto state 114
-INFO:root:Result : <tuple @ 0x2ac5a5cb0b0> ((('switch_default', 4, (('case', (3,), ( ...)
-INFO:root:Action : Reduce rule [statement -> for_statement statement] with [<tuple @ 0x2ac5a68bc40>,<tuple @ 0x2ac5a5cb0b0>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a5cb040> ((('for_default', (('def', 'i', <class 'i ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c05e0>,<tuple @ 0x2ac5a5cb040>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a5e6f40> ((('var_assign', 'z', <class 'bool'>, Non ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c0630>,<tuple @ 0x2ac5a5e6f40>] and goto state 115
-INFO:root:Result : <tuple @ 0x2ac5a5e6ec0> ((('var_assign', 'y', <class 'str'>, '123 ...)
-INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x2ac5a5c09a0>,<tuple @ 0x2ac5a5e6ec0>] and goto state 85
-INFO:root:Result : <tuple @ 0x2ac5a5bdd30> ((('reassign_op_global', 'x', <class 'int ...)
-INFO:root:Action : Reduce rule [main_statement -> global_statement KFUNC KMAIN ( ) { NL statement }] with [<tuple @ 0x2ac5a602a60>,'func','main','(',')','{',None,<tuple @ 0x2ac5a5bdd30>,'}'] and goto state 28
-INFO:root:Result : <tuple @ 0x2ac5a69f4c0> (((('global_var_assign', 'x', <class 'int ...)
-INFO:root:Action : Reduce rule [start -> KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement] with ['package','main','\n\n',(),<tuple @ 0x2ac5a6d8840>,'\n\n\n',<tuple @ 0x2ac5a69f4c0>] and goto state 1
-INFO:root:Result : <tuple @ 0x2ac5a5c0400> (('start', (), ('import', '"fmt"'), ((('g ...)
-INFO:root:Done   : Returning <tuple @ 0x2ac5a5c0400> (('start', (), ('import', '"fmt"'), ((('g ...)
+INFO:root:Result : <tuple @ 0x155640c3280> ((('print', -40),))
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f804f0>,<tuple @ 0x155640c3280>] and goto state 115
+INFO:root:Result : <tuple @ 0x15564091800> ((('reassign_op', 'a', <class 'int'>, -40 ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f80540>,<tuple @ 0x15564091800>] and goto state 111
+INFO:root:Result : <tuple @ 0x1556405f580> ((('def', 'a', <class 'int'>, 10), ('reas ...)
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [<tuple @ 0x15564091840>,<tuple @ 0x1556405f580>] and goto state 115
+INFO:root:Result : <tuple @ 0x15563f804a0> ((('print', '123456'), ('def', 'a', <clas ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f80590>,<tuple @ 0x15563f804a0>] and goto state 111
+INFO:root:Result : <tuple @ 0x15563fc3ea0> ((('reassign_op', 'y', <class 'str'>, '12 ...)
+INFO:root:Action : Reduce rule [statement -> print_statement statement] with [('print', True),<tuple @ 0x15563fc3ea0>] and goto state 115
+INFO:root:Result : <tuple @ 0x15563f91040> ((('print', True), ('reassign_op', 'y', < ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f805e0>,<tuple @ 0x15563f91040>] and goto state 113
+INFO:root:Result : <tuple @ 0x15563f91ee0> ((('reassign', 'z', <class 'bool'>, True) ...)
+INFO:root:Action : Reduce rule [statement -> switch_statement statement] with [<tuple @ 0x1556405fd00>,<tuple @ 0x15563f91ee0>] and goto state 114
+INFO:root:Result : <tuple @ 0x15563f8b0b0> ((('switch_default', 4, (('case', (3,), ( ...)
+INFO:root:Action : Reduce rule [statement -> for_statement statement] with [<tuple @ 0x1556404bc40>,<tuple @ 0x15563f8b0b0>] and goto state 115
+INFO:root:Result : <tuple @ 0x15563f8b040> ((('for_default', (('def', 'i', <class 'i ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f80680>,<tuple @ 0x15563f8b040>] and goto state 115
+INFO:root:Result : <tuple @ 0x15563fa7f40> ((('var_assign', 'z', <class 'bool'>, Non ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f806d0>,<tuple @ 0x15563fa7f40>] and goto state 115
+INFO:root:Result : <tuple @ 0x15563fa7ec0> ((('var_assign', 'y', <class 'str'>, '123 ...)
+INFO:root:Action : Reduce rule [statement -> assign_statement statement] with [<tuple @ 0x15563f80a40>,<tuple @ 0x15563fa7ec0>] and goto state 85
+INFO:root:Result : <tuple @ 0x15563f7dd30> ((('reassign_op_global', 'x', <class 'int ...)
+INFO:root:Action : Reduce rule [main_statement -> global_statement KFUNC KMAIN ( ) { NL statement }] with [<tuple @ 0x15563fc1bb0>,'func','main','(',')','{',None,<tuple @ 0x15563f7dd30>,'}'] and goto state 28
+INFO:root:Result : <tuple @ 0x1556405f580> (((('global_var_assign', 'x', <class 'int ...)
+INFO:root:Action : Reduce rule [start -> KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement] with ['package','main','\n\n',(),<tuple @ 0x15564098880>,'\n\n\n',<tuple @ 0x1556405f580>] and goto state 1
+INFO:root:Result : <tuple @ 0x15563f804a0> (('start', (), ('import', '"fmt"'), ((('g ...)
+INFO:root:Done   : Returning <tuple @ 0x15563f804a0> (('start', (), ('import', '"fmt"'), ((('g ...)
 INFO:root:PLY: PARSE DEBUG END
