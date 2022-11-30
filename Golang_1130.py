@@ -480,7 +480,7 @@ def p_for_statement_condition(p):
     """
     for_statement : FOR condition '{' NL statement '}' NLD
     """
-    p[0] = ("for_condition", p[2], p[4])
+    p[0] = ("for_condition", p[2], p[5])
     global in_loop
     in_loop -= 1
     print_list.append(f"For accepted: {p[0]}")
@@ -490,7 +490,7 @@ def p_for_statement_infinite(p):
     """
     for_statement : FOR '{' NL statement '}' NLD
     """
-    p[0] = ("for_infinite", p[3])
+    p[0] = ("for_infinite", p[4])
     global in_loop
     in_loop -= 1
     print_list.append(f"For accepted: {p[0]}")
