@@ -6,11 +6,8 @@ import "fmt"
 var x int = 3
 
 func main() {
-
     x += 1
-
     var y string = "123"
-
     var z bool
 
     for i := 0; i < 10; i++{
@@ -22,10 +19,6 @@ func main() {
             continue
         }
     }
-
-
-
-
 
     switch x{
         case 3:
@@ -44,4 +37,4 @@ func main() {
     a := 10
     a *= 4 * (2 + -3)
     fmt.Println(a)
-}
+}     

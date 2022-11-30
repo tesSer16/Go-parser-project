@@ -202,7 +202,7 @@ def p_main_statement(p):
     """
     main_statement : global_statement KFUNC KMAIN '(' ')' '{' NL statement '}' NL
     """
-    p[0] = (p[1], ("main", p[8]), None)
+    p[0] = (p[1], ("main", p[8]))
 
 
 # def p_main_statement_with_global(p):
@@ -343,7 +343,7 @@ def p_else_statement_elif(p):
 
 def p_else_statement_else(p):
     """else_statement : KELSE '{' NL statement NL '}'"""
-    p[0] = ("else", p[4])
+    p[0] = (("else", p[4]), )
 
 
 def p_else_statement_empty(p):
@@ -462,7 +462,7 @@ def p_for_statement(p):
     """
     for_statement : FOR single_line_statement_1 ';' condition ';' single_line_statement_2 '{' NL statement NL '}' NLD
     """
-    p[0] = ("for_default", (p[2], p[4], p[6]), p[8])
+    p[0] = ("for_default", (p[2], p[4], p[6]), p[9])
     global in_loop
     in_loop -= 1
     print_list.append(f"For accepted: {p[0]}")
