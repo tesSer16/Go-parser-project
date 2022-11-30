@@ -153,9 +153,9 @@ error_list = []
 
 def p_start(p):  # import statement 추가
     """
-    start : KPACKAGE KMAIN NLD global_statement import_statement NLD main_statement
+    start : KPACKAGE KMAIN NLD import_statement NLD main_statement
     """
-    p[0] = ("start", p[4], p[5], p[7])
+    p[0] = ("start", p[4], p[6])
     print_list.append(f"Code accepted: {p[0]}")
 
 
@@ -558,6 +558,11 @@ def p_increase_statement(p):
     # const check
     if p[1] in constants:
         error_list.append(f"Error: cannot assign to constant {p[1]}")
+        return
+
+    # type check
+    if type(names[p[1]]) != int:
+        error_list.append(f"Error: cannot add non-int type {type(names[p[1]])}")
         return
 
     if p[1] in names:
@@ -1000,11 +1005,12 @@ def p_error(p):
     is_error = True
     if p:
         print("SyntaxError: Syntax error at '%s'" % p.value)
+        parser.errok()
     else:
         print("Syntax error at EOF")
 
 
-yacc.yacc()
+parser = yacc.yacc()
 
 # debugging process(stack view)
 
@@ -1017,7 +1023,7 @@ logging.basicConfig(
 
 # file execution for debug
 with open("input.txt") as f:
-    yacc.parse(f.read(), debug=logging.getLogger())
+    parser.parse(f.read(), debug=logging.getLogger())
 
 
 if error_list or is_error:
