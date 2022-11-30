@@ -330,7 +330,7 @@ def p_if_statement(p):
     """
     if_statement : KIF condition '{' NL statement '}' else_statement NLD
     """
-    p[0] = (("if", p[2], p[5]), ) + p[8]
+    p[0] = (("if", p[2], p[5]), ) + p[7]
     print_list.append(f"If accepted: {p[0]}")
 
 
@@ -338,7 +338,7 @@ def p_else_statement_elif(p):
     """
     else_statement : KELSE KIF condition '{' NL statement '}' else_statement
     """
-    p[0] = (("else if", p[3], p[6]), ) + p[9]
+    p[0] = (("else if", p[3], p[6]), ) + p[8]
 
 
 def p_else_statement_else(p):
