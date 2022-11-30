@@ -9,7 +9,7 @@ func main() {
     var y string = "123"
     var z bool
 
-    for i := 0; i < 10; i++{
+    for i := 0 i < 10; i++{
         if i % 2 == 0{
             fmt.Println("even")	
             continue

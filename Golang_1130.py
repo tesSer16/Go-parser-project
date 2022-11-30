@@ -1022,7 +1022,7 @@ logging.basicConfig(
 )
 
 # file execution for debug
-with open("input.txt") as f:
+with open("examples//invalid_switch.txt") as f:
     parser.parse(f.read(), debug=logging.getLogger())
 
 

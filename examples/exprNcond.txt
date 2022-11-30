@@ -1,0 +1,7 @@
+package main
+
+import "fmt"
+
+func main(){
+  z := 3 >= false
+}
